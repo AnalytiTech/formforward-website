@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{> head}}
+<title>Privacy policy · {{appName}}</title>
+<meta name="description" content="How {{appName}} handles your information: tracking happens on your phone, with no account and no uploads.">
+</head>
+<body>
+{{> header}}
+<main class="doc">
+  <h1>Privacy policy</h1>
+  <p><em>Last updated: {{updated}}</em></p>
+  <p>{{appName}} is made by {{company}} ("we"). This policy explains what happens to your information when you use the {{appName}} app.</p>
+
+  <h2>The short version</h2>
+  <p>{{appName}} tracks your movement on your phone. Your camera feed, videos, body tracking data, trained moves, workout history and settings stay on your device. We don't run servers for {{appName}}, there are no accounts, and we don't receive your videos or tracking data.</p>
+
+  <h2>What stays on your device</h2>
+  <ul>
+    <li><strong>Camera and video.</strong> The camera is used to track your body. Recordings are saved inside the app, or to your Photos if you choose.</li>
+    <li><strong>Body tracking data:</strong> positions of points on your body, computed from the camera or a video you pick.</li>
+    <li><strong>Everything you create:</strong> trained moves, custom sports, routines, analyses, range-of-motion results, workout history and settings, including the height and handedness you enter.</li>
+  </ul>
+  <p>You can delete recordings, moves, sessions and analyses in the app. Uninstalling {{appName}} removes everything it stored. On iPhone, your device backup may include this data, under your own Apple account.</p>
+
+  <h2>Photos and files</h2>
+  <p>{{appName}} only opens videos you pick, and only saves to Photos when you ask it to.</p>
+
+  <h2>Sharing</h2>
+  <p>If you share a clip, an analysis or a move file, it goes wherever you send it (for example Messages or email), under that service's privacy policy.</p>
+
+  <h2>Diagnostics from Google ML Kit</h2>
+  <p>{{appName}} uses Google's ML Kit to detect body position on the device. ML Kit sends Google limited diagnostic information so the feature keeps working: device type and OS version, app version, a per-installation identifier that does not identify you, performance figures such as processing time, and error codes. It does not include your images, videos or tracking data. Google uses it for diagnostics and usage analytics, sends it encrypted, and does not share it with third parties. See <a href="https://developers.google.com/ml-kit/android-data-disclosure">Google's ML Kit data disclosure</a>.</p>
+
+  <h2>Ratings and purchases</h2>
+  <p>When {{appName}} asks for a rating, the request is shown by Apple or Google; we don't see who rated or what they wrote unless it's posted publicly. If you buy {{appName}} Pro, payment is handled by Apple or Google and we don't receive your payment details. <em>[Update when purchases launch, including any service used to confirm subscriptions.]</em></p>
+
+  <h2>Children</h2>
+  <p>{{appName}} isn't directed at children under 13, and we don't knowingly collect information from them. Younger athletes should use it with a parent or coach.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, we'll update the date above and the policy linked from the app stores.</p>
+
+  <h2>Contact</h2>
+  <p>{{company}} · <a href="mailto:{{supportEmail}}">{{supportEmail}}</a></p>
+</main>
+{{> footer}}
+</body>
+</html>
