@@ -1,20 +1,24 @@
 /* PerfectRep site: AnalytiTech brand, dark. Colors match the app (contrast-checked). */
 :root {
-  --bg: #0f0e15;
-  --surface: #1b1a25;
-  --surface-high: #262533;
-  --primary: #03978f;
-  --action: #2bd9c9;
-  --on-action: #0f0e15;
-  --accent: #65ffef;
-  --spark: #ff9f5a;
-  --text: #f4f4f6;
-  --muted: #b4b2c2;
-  --outline: #4a4858;
+  /* FormForward: deep navy, electric blue, fresh green (brand mood board). */
+  --bg: #0a1422;
+  --surface: #121f33;
+  --surface-high: #1b2b46;
+  --primary: #1683f2;
+  --action: #0e6fd8;      /* filled buttons: white text passes 4.5:1 */
+  --on-action: #ffffff;
+  --accent: #3daeff;      /* sky blue: links and highlights on navy */
+  --green: #47d98a;
+  --purple: #8b7cff;
+  --spark: #ff7a45;
+  --gold: #f5b935;
+  --text: #f3f6fb;
+  --muted: #9fb0c6;
+  --outline: #2c3f60;
   --radius: 18px;
   --max: 1120px;
-  --heading: "Righteous", system-ui, sans-serif;
-  --body: "Josefin Sans", system-ui, sans-serif;
+  --heading: "Montserrat", system-ui, sans-serif;
+  --body: "Inter", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -30,8 +34,8 @@ body {
 }
 img { max-width: 100%; display: block; }
 a { color: var(--accent); }
-h1, h2, h3 { font-family: var(--heading); font-weight: 400; line-height: 1.15; margin: 0 0 .5em; }
-h1 { font-size: clamp(2.3rem, 5vw, 3.8rem); }
+h1, h2, h3 { font-family: var(--heading); font-weight: 800; line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.01em; }
+h1 { font-size: clamp(2.1rem, 4vw, 3.1rem); }
 h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); }
 h3 { font-size: 1.3rem; }
 p { margin: 0 0 1em; }
@@ -41,6 +45,7 @@ section { padding: 80px 0; }
 section.alt { background: var(--surface); }
 .eyebrow {
   font-family: var(--heading);
+  font-weight: 700;
   color: var(--accent);
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -61,7 +66,8 @@ section.alt { background: var(--surface); }
 .site-header .wrap { display: flex; align-items: center; gap: 16px; height: 68px; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
 .brand img { height: 34px; width: auto; }
-.brand span { font-family: var(--heading); font-size: 1.35rem; }
+.brand span { font-family: var(--heading); font-weight: 800; font-size: 1.3rem; }
+.brand span b { color: var(--accent); font-weight: 800; }
 .nav { margin-left: auto; display: flex; gap: 22px; align-items: center; }
 .nav a { color: var(--muted); text-decoration: none; font-size: .98rem; }
 .nav a:hover { color: var(--text); }
@@ -115,7 +121,7 @@ section.alt { background: var(--surface); }
 section.alt .step { background: var(--surface-high); }
 .step .num {
   width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--primary); font-family: var(--heading); margin-bottom: 14px;
+  background: var(--primary); font-family: var(--heading); font-weight: 800; margin-bottom: 14px;
 }
 @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
 
@@ -146,17 +152,17 @@ section.alt .step { background: var(--surface-high); }
   padding: 18px 22px; border-radius: 0 var(--radius) var(--radius) 0; margin: 20px 0;
   font-size: 1.1rem;
 }
-.callout b { color: var(--accent); font-family: var(--heading); font-weight: 400; }
+.callout b { color: var(--accent); font-family: var(--heading); font-weight: 800; }
 
 /* Pricing */
 .plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 820px; margin: 36px auto 0; }
 .plan { background: var(--surface); border-radius: var(--radius); padding: 30px; border: 2px solid var(--surface-high); }
 .plan.pro { border-color: var(--primary); }
-.plan .price { font-family: var(--heading); font-size: 2.4rem; }
+.plan .price { font-family: var(--heading); font-weight: 800; font-size: 2.4rem; }
 .plan .price small { font-family: var(--body); font-size: 1rem; color: var(--muted); }
 .plan ul { padding-left: 1.1em; color: var(--muted); }
 .plan .tag {
-  display: inline-block; background: var(--spark); color: var(--on-action);
+  display: inline-block; background: var(--spark); color: var(--bg);
   font-weight: 700; font-size: .8rem; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
 }
 @media (max-width: 720px) { .plans { grid-template-columns: 1fr; } }
@@ -188,3 +194,26 @@ section.alt .faq details { background: var(--surface-high); }
 .site-footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
 .site-footer a { color: var(--muted); text-decoration: none; }
 .site-footer a:hover { color: var(--text); }
+
+/* Hero glow and tagline */
+.hero { background: radial-gradient(900px 520px at 85% 10%, rgba(22,131,242,.28), transparent 60%), radial-gradient(700px 420px at 10% 90%, rgba(71,217,138,.12), transparent 60%); }
+.tagline { font-family: var(--heading); font-weight: 600; letter-spacing: .3em; text-transform: uppercase; font-size: .78rem; color: var(--muted); margin-top: 22px; }
+.hero h1 { text-transform: none; }
+
+/* Category band (mood board) */
+.band { background: #08101c; border-block: 1px solid var(--surface-high); padding: 34px 0; }
+.band .wrap { display: grid; grid-template-columns: repeat(5, 1fr); }
+.cat { text-align: center; padding: 6px 12px; border-left: 1px solid var(--surface-high); }
+.cat:first-child { border-left: 0; }
+.cat svg { width: 46px; height: 46px; display: block; margin: 0 auto 10px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cat b { display: block; font-family: var(--heading); font-weight: 700; letter-spacing: .08em; color: var(--text); font-size: .95rem; }
+.cat span { color: var(--muted); font-size: .92rem; }
+@media (max-width: 760px) {
+  .band .wrap { grid-template-columns: repeat(2, 1fr); row-gap: 22px; }
+  .cat { border-left: 0; }
+  .cat:last-child { grid-column: span 2; }
+}
+
+/* Footer company mark */
+.company { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.company img { height: 26px; width: auto; }

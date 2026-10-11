@@ -1,5 +1,5 @@
 {
-  "appName": "PerfectRep",
+  "appName": "FormForward",
   "coachName": "AnalytiCoach",
   "company": "AnalytiTech, LLC",
   "domain": "https://analytitech.net",
@@ -12,5 +12,6 @@
   "priceFounder": "$49.99",
   "trialDays": "7",
   "year": "2026",
-  "updated": "October 2026"
+  "updated": "October 2026",
+  "tagline": "Practice · Understand · Improve"
 }
