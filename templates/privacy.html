@@ -13,7 +13,7 @@
   <p>{{appName}} is made by {{company}} ("we"). This policy explains what happens to your information when you use the {{appName}} app.</p>
 
   <h2>The short version</h2>
-  <p>{{appName}} tracks your movement on your phone. Your camera feed, videos, body tracking data, trained moves, workout history and settings stay on your device. We don't run servers for {{appName}}, there are no accounts, and we don't receive your videos or tracking data.</p>
+  <p>{{appName}} tracks your movement on your phone. Your camera feed, videos, body tracking data, trained moves, workout history and settings stay on your device, and we never receive them. There are no sign-ups or passwords. If you subscribe to {{appName}} Pro, our server keeps a record of your subscription so Pro works on your phone and can be restored; that's the only information about you we hold.</p>
 
   <h2>What stays on your device</h2>
   <ul>
@@ -32,8 +32,19 @@
   <h2>Diagnostics from Google ML Kit</h2>
   <p>{{appName}} uses Google's ML Kit to detect body position on the device. ML Kit sends Google limited diagnostic information so the feature keeps working: device type and OS version, app version, a per-installation identifier that does not identify you, performance figures such as processing time, and error codes. It does not include your images, videos or tracking data. Google uses it for diagnostics and usage analytics, sends it encrypted, and does not share it with third parties. See <a href="https://developers.google.com/ml-kit/android-data-disclosure">Google's ML Kit data disclosure</a>.</p>
 
-  <h2>Ratings and purchases</h2>
-  <p>When {{appName}} asks for a rating, the request is shown by Apple or Google; we don't see who rated or what they wrote unless it's posted publicly. If you buy {{appName}} Pro, payment is handled by Apple or Google and we don't receive your payment details. <em>[Update when purchases launch, including any service used to confirm subscriptions.]</em></p>
+  <h2>{{appName}} Pro subscriptions</h2>
+  <p>Payment is handled entirely by Apple or Google. We never receive your name, email, card or payment details.</p>
+  <p>When you subscribe or tap <strong>Restore purchases</strong>, the app creates an anonymous ID for you (through Google Firebase Authentication; no email or password) and sends our server the store's purchase reference. Our server asks Apple or Google to confirm it and stores:</p>
+  <ul>
+    <li>your anonymous ID,</li>
+    <li>the store's purchase reference (an Apple transaction ID or a Google Play purchase token),</li>
+    <li>which plan you have, its status (active, cancelled, refunded…) and when the current period ends.</li>
+  </ul>
+  <p>Apple and Google notify our server when a subscription renews, is cancelled or is refunded, so your Pro access stays correct. To stop abuse, the app also proves to our server that it's the genuine app (Firebase App Check), which doesn't identify you. This data is kept on Google Cloud in the United States, used only to provide Pro, and never sold or shared for advertising. If you don't subscribe, none of this happens: the app never contacts our server.</p>
+  <p>To have your subscription record deleted, email us (see Contact). Cancelling a subscription is done in your App Store or Google Play account settings.</p>
+
+  <h2>Ratings</h2>
+  <p>When {{appName}} asks for a rating, the request is shown by Apple or Google; we don't see who rated or what they wrote unless it's posted publicly.</p>
 
   <h2>Children</h2>
   <p>{{appName}} isn't directed at children under 13, and we don't knowingly collect information from them. Younger athletes should use it with a parent or coach.</p>
