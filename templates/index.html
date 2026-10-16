@@ -1,240 +1,276 @@
 <!doctype html>
 <html lang="en">
 <head>
-{{> head}}
-<title>{{appName}}: AI motion coach for sport, yoga and rehab</title>
-<meta name="description" content="{{appName}} turns your phone's camera into a real-time motion coach. Swing, stance, dribbling, yoga and range of motion, measured on your phone. No wearables, no account, nothing uploaded.">
-<meta property="og:title" content="{{appName}}: move with purpose, get real feedback">
-<meta property="og:description" content="Your phone's camera becomes a real-time motion coach for sport, yoga and rehab.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AnalytiTech · Custom software for small businesses</title>
+<meta name="description" content="AnalytiTech builds apps, websites and automations for small businesses in the Corning–Elmira area, plus AI, IoT and vision engineering. Makers of FormForward and the CPPLL Field Scheduler.">
+<link rel="icon" href="/assets/img/logo.png">
+<meta name="theme-color" content="#0B1F24">
+<meta property="og:title" content="AnalytiTech · Custom software for small businesses">
+<meta property="og:description" content="Apps, websites and automations that take the busywork off your plate.">
+<meta property="og:image" content="{{domain}}/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/business.css">
 </head>
 <body>
-{{> header}}
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="/assets/img/logo.png" alt="AnalytiTech logo"><span>AnalytiTech</span></a>
+    <nav class="top">
+      <a class="hide" href="#services">What we build</a>
+      <a class="hide" href="#work">Our work</a>
+      <a class="hide" href="#products">Apps</a>
+      <a class="hide" href="#engineering">Engineering</a>
+      <a class="btn btn-primary" href="#contact">Free consult</a>
+    </nav>
+  </div>
+</header>
 
-<main>
-  <section class="hero photo-hero">
+<main id="top">
+  <section class="hero">
     <div class="wrap">
-      <div>
-        <div class="eyebrow">AI motion coach · by AnalytiTech</div>
-        <h1>Move with purpose.<br><span>Get real feedback.</span><br>See real progress.</h1>
-        <p class="lede">{{appName}} turns your phone's camera into a real-time motion coach. Prop it up, move, and get your swing, stance, form and range of motion measured on the spot, with {{coachName}} counting every rep and pushing you when you want it to.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="#get">Get early access</a>
-          <a class="btn btn-outline" href="#sports">See what it measures</a>
+      <div class="pitch">
+        <div class="eyebrow">Custom software for small businesses</div>
+        <h1>Less paperwork. <em>More time for the work you love.</em></h1>
+        <p class="lede">AnalytiTech builds apps, websites and automations for local businesses and organizations. Quotes, scheduling, invoices and check-ins that used to take an evening now take a tap.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="#contact">Book a free 30-minute consult</a>
+          <a class="btn btn-ghost" href="#work">See what we've built</a>
         </div>
-        <p class="muted" style="margin-top:18px;font-size:.95rem">No wearables. No account. Everything runs on your phone.</p>
-        <div class="tagline">{{tagline}}</div>
+        <div class="local"><i></i>Based in the Corning–Elmira area. We'll come to you.</div>
+      </div>
+
+      <div class="calc" aria-labelledby="calc-title">
+        <h3 id="calc-title">How many hours could you get back?</h3>
+        <div class="row">
+          <label for="task">A task you do by hand</label>
+          <select id="task">
+            <option value="15|25">Writing quotes and estimates</option>
+            <option value="12|20">Sending invoices and chasing payments</option>
+            <option value="25|6">Scheduling and reminder calls</option>
+            <option value="5|60">Re-typing data between spreadsheets</option>
+            <option value="40|4">Checking people in at the front desk</option>
+          </select>
+        </div>
+        <div class="pair">
+          <div class="row"><label for="per">Times per week</label><input id="per" type="number" min="0" max="500" value="15"></div>
+          <div class="row"><label for="mins">Minutes each</label><input id="mins" type="number" min="0" max="600" value="25"></div>
+        </div>
+        <div class="row"><label for="rate">What an hour of your time is worth ($)</label><input id="rate" type="number" min="0" max="1000" value="50"></div>
+        <div class="out" aria-live="polite">
+          <div><div class="num" id="hours">0</div><div class="cap">hours back per year</div></div>
+          <div><div class="num spark" id="dollars">$0</div><div class="cap">of your time, per year</div></div>
+        </div>
+        <p class="fine">An estimate that assumes software handles about 70% of the task. We'll work out real numbers with you in the consult.</p>
       </div>
     </div>
   </section>
 
-  <section class="band" aria-label="What FormForward covers">
+  <section id="services">
     <div class="wrap">
-      <div class="cat" style="color:var(--primary)"><img src="/assets/img/icon-sports.svg" alt="" width="52" height="52"><span>Improve performance</span></div>
-      <div class="cat" style="color:var(--green)"><img src="/assets/img/icon-fitness.svg" alt="" width="52" height="52"><span>Train with better form</span></div>
-      <div class="cat" style="color:var(--purple)"><img src="/assets/img/icon-yoga.svg" alt="" width="52" height="52"><span>Build strength and balance</span></div>
-      <div class="cat" style="color:var(--spark)"><img src="/assets/img/icon-rehab.svg" alt="" width="52" height="52"><span>Move forward with confidence</span></div>
-      <div class="cat" style="color:var(--gold)"><img src="/assets/img/icon-teach.svg" alt="" width="52" height="52"><span>Your movements. Your model.</span></div>
-    </div>
-  </section>
-
-  <section class="alt">
-    <div class="wrap center">
-      <div class="eyebrow">How it works</div>
-      <h2>Set it up in seconds</h2>
-      <div class="steps" style="text-align:left">
-        <div class="step"><div class="num">1</div><h3>Prop up your phone</h3><p class="muted">On a tripod, a fence or your bag, 8–12 feet away with your whole body in view.</p></div>
-        <div class="step"><div class="num">2</div><h3>Move</h3><p class="muted">Swing, shoot, dribble, hold a pose or work through your rehab. Record one rep or a whole hands-free session.</p></div>
-        <div class="step"><div class="num">3</div><h3>Get coached</h3><p class="muted">A scorecard for every rep, each number against a target, and one clear thing to work on next.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="sports">
-    <div class="wrap center">
-      <div class="eyebrow">What it measures</div>
-      <h2>Eight sports, yoga and rehab in one app</h2>
-      <p class="lede">Most AI form apps cover one sport or the gym. {{appName}} covers how you move, wherever you play.</p>
-      <div class="sports nine" style="text-align:left">
-        <div class="sport"><h3>Golf</h3><p>Full swing (tempo, lead arm, turn, head, hand speed) and putting stroke (2:1 tempo, follow-through, stillness).</p></div>
-        <div class="sport"><h3>Baseball</h3><p>Batting swing, throwing and pitching, and the infield ready position.</p></div>
-        <div class="sport"><h3>Basketball</h3><p>Jump shot, dribbling rhythm and height, defensive stance, vertical jump.</p></div>
-        <div class="sport"><h3>Soccer</h3><p>Kick mechanics and foot speed, plus close-control dribbling with both feet.</p></div>
-        <div class="sport"><h3>Football</h3><p>Quarterback pass, defensive stance, lateral shuffle, and plyometrics: vertical, broad jump, reactive strength.</p></div>
-        <div class="sport"><h3>Tennis</h3><p>Serve, forehand and backhand: unit turn, coil, contact height, finish.</p></div>
-        <div class="sport"><h3>Lacrosse</h3><p>Shot and pass mechanics, cradling rhythm and stick protection, defensive stance.</p></div>
-        <div class="sport"><h3>Gymnastics</h3><p>Back and front handsprings, cartwheels, handstands, splits and bridges, with live form checks.</p></div>
-        <div class="sport"><h3>Yoga</h3><p>30+ poses with live form checks, from mountain and warrior to downward dog and bridge.</p></div>
-      </div>
-      <div class="feature mac" style="text-align:left">
-        <div class="text">
-          <div class="eyebrow">New · Gymnastics</div>
-          <h2>The Mac Handspring Competition</h2>
-          <p class="muted">Do a back handspring and go head to head with Mac. You're scored on your set, arms by your ears, straight arms and legs, legs together, snap-down speed and the landing, and so is Mac. Beat Rookie Mac, then Varsity, then Champion.</p>
-          <ul>
-            <li><strong>You vs Mac,</strong> measurement by measurement, with the one thing to fix next.</li>
-            <li><strong>Your best score</strong> and a trophy for every Mac you beat.</li>
-            <li><strong>Gymnastics shapes:</strong> handstand, headstand, splits, bridge and more, each held and checked.</li>
-          </ul>
+      <div class="eyebrow">What we build</div>
+      <h2 style="margin-top:12px">Tools shaped around how you already work</h2>
+      <div class="grid3">
+        <div class="svc">
+          <svg viewBox="0 0 32 32"><path d="M8 4h12l6 6v18H8z"/><path d="M20 4v6h6M12 16h10M12 21h10M12 26h6"/></svg>
+          <h3>Quotes and invoices</h3>
+          <p>Build a quote on your phone at the job site, send a branded PDF, and turn it into an invoice when the work is done.</p>
+          <span class="ex">Built for: an event rental company</span>
         </div>
-        <div class="media">
-          <div class="phone"><img src="/assets/img/shot-11_mac.jpg" alt="Mac Handspring Competition: pick Rookie, Varsity or Champion Mac and take your turn" loading="lazy"></div>
-          <div class="phone"><img src="/assets/img/shot-10_gymnastics.jpg" alt="Gymnastics screen with back handspring, front handspring and cartwheel analysis" loading="lazy"></div>
+        <div class="svc">
+          <svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="20" rx="3"/><path d="M5 13h22M11 4v6M21 4v6M10 18h4M18 18h4M10 22h4"/></svg>
+          <h3>Scheduling and booking</h3>
+          <p>Let people request a time, catch double-bookings before they happen, and approve with one tap.</p>
+          <span class="ex">Built for: a youth baseball league</span>
+        </div>
+        <div class="svc">
+          <svg viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="17" rx="2"/><path d="M4 11h24M11 27h10M16 23v4"/></svg>
+          <h3>Websites that bring in work</h3>
+          <p>Fast, simple sites with quote forms, booking links and photos of your best jobs, so customers can reach you at 10 pm.</p>
+          <span class="ex">Built for: local service businesses</span>
+        </div>
+        <div class="svc">
+          <svg viewBox="0 0 32 32"><rect x="9" y="3" width="14" height="26" rx="3"/><path d="M13 9h6v6h-6zM13 20h2M17 20h2M13 24h6"/></svg>
+          <h3>Kiosks and check-in</h3>
+          <p>Self-serve screens with QR codes, lockers and payments for front desks, rentals and events.</p>
+          <span class="ex">Built: a smart locker kiosk</span>
+        </div>
+        <div class="svc">
+          <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="4"/><path d="M16 4v4M16 24v4M4 16h4M24 16h4M7.5 7.5l2.8 2.8M21.7 21.7l2.8 2.8M7.5 24.5l2.8-2.8M21.7 10.3l2.8-2.8"/></svg>
+          <h3>Cameras and connected devices</h3>
+          <p>Put sensors, cameras and on-device AI to work: counting, tracking and alerts without a person watching a screen.</p>
+          <span class="ex">Built: AI motion tracking (FormForward)</span>
+        </div>
+        <div class="svc">
+          <svg viewBox="0 0 32 32"><path d="M6 8c0-2 4.5-3.5 10-3.5S26 6 26 8s-4.5 3.5-10 3.5S6 10 6 8z"/><path d="M6 8v8c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5V8M6 16v8c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5v-8"/></svg>
+          <h3>Data and automation</h3>
+          <p>Move spreadsheets into one place, clean up the mess, and get the report you need without building it every Friday.</p>
+          <span class="ex">Built: league schedule builder and data tools</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="alt" id="coach">
-    <div class="wrap feature">
-      <div class="text">
-        <div class="eyebrow">Meet {{coachName}}</div>
-        <h2>A coach that counts every rep, and pushes when you want it to</h2>
-        <p class="muted">{{coachName}} talks you through workouts and sessions, so you never have to look at the screen.</p>
-        <ul>
-          <li><strong>Every rep and every held second</strong>, counted out loud.</li>
-          <li><strong>Calm, Encouraging or Push me:</strong> choose how hard it drives you through the last reps.</li>
-          <li><strong>Form cues in the moment:</strong> "Reach higher, both arms overhead." "Sit your hips back."</li>
-          <li><strong>Gentler form checks</strong> for anyone still working up to the full movement.</li>
-        </ul>
-        <div class="callout"><b>{{coachName}}:</b> "8! 2 more, push! … 9. Last one, make it perfect!"</div>
-      </div>
-      <div class="media">
-        <div class="phone"><img src="/assets/img/shot-06_workout_results.jpg" alt="Workout results with reps, pace, rhythm and steadiness"></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap feature flip">
-      <div class="text">
-        <div class="eyebrow">Hands-free sessions</div>
-        <h2>Set it on a tripod and keep shooting</h2>
-        <p class="muted">Continuous sessions capture rep after rep while you practice: ten jump shots, twenty swings, a bucket of serves. Afterwards you get a report on the whole set.</p>
-        <ul>
-          <li><strong>Average and best score</strong>, and a bar for every rep.</li>
-          <li><strong>Consistency:</strong> how steady each measurement stayed across the set.</li>
-          <li><strong>The one thing to focus on</strong>, from the measurement most often off target.</li>
-          <li><strong>Watch yourself:</strong> flip to the selfie camera, or mirror your phone to the TV with AirPlay or Cast.</li>
-        </ul>
-      </div>
-      <div class="media">
-        <div class="phone"><img src="/assets/img/shot-02_golf.jpg" alt="Golf screen with swing and putting analyses and continuous session"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt">
-    <div class="wrap feature">
-      <div class="text">
-        <div class="eyebrow">Teach it your own moves</div>
-        <h2>Not on the list? Teach it.</h2>
-        <p class="muted">Show {{appName}} about ten reps of any move, like a pickleball dink, a volleyball serve or a dance step. It learns the move on your phone, then spots, counts and clips every rep you do after that.</p>
-        <ul>
-          <li><strong>Build your own sport</strong> from your moves, with its own routines and its own spot on your home screen.</li>
-          <li><strong>Tag a move to any sport,</strong> like that lacrosse dodge your coach keeps asking for.</li>
-        </ul>
-      </div>
-      <div class="media">
-        <div class="phone"><img src="/assets/img/shot-03_tennis.jpg" alt="Tennis serve, forehand and backhand analyses"></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap feature flip">
-      <div class="text">
-        <div class="eyebrow">Yoga, mobility and rehab</div>
-        <h2>Practice the exercises your PT gives you, and see your range improve</h2>
-        <p class="muted">Range-of-motion checks record the angle you reach, for shoulder, elbow, hip, knee and neck, and track it over time. Programs by body area guide you through each exercise, with form checks as gentle as you need.</p>
-        <ul>
-          <li><strong>13 range-of-motion checks</strong> and 6 programs: shoulder, neck, back, hip, knee, balance.</li>
-          <li><strong>30+ yoga poses</strong>, Sun Salutation A, and warrior, balance and floor flows.</li>
-          <li><strong>Build your own routine:</strong> pick the moves, reps, hold times and form strictness.</li>
-        </ul>
-        <p class="muted" style="font-size:.9rem">{{appName}} is a training aid, not a medical device. Angles are camera estimates. Follow your clinician's guidance.</p>
-      </div>
-      <div class="media photo-stack">
-        <img class="photo-frame" src="/assets/img/photo-rehab.jpg" alt="Woman foam-rolling her leg in a bright physical therapy studio" loading="lazy" width="1000" height="1000">
-        <div class="phone"><img src="/assets/img/shot-08_rehab.jpg" alt="Rehab and mobility screen with range-of-motion checks"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt">
-    <div class="wrap center">
-      <div class="eyebrow">Private by design</div>
-      <h2>Your video never leaves your phone</h2>
-      <p class="lede">Tracking and analysis happen on the device. There's no account to create, no cloud upload, and nothing to share unless you choose to.</p>
-    </div>
-  </section>
-
-  <section id="pricing">
-    <div class="wrap center">
-      <div class="eyebrow">Pricing</div>
-      <h2>Start free. Go Pro when you're hooked.</h2>
-      <div class="plans" style="text-align:left">
-        <div class="plan">
-          <h3>Free</h3>
-          <div class="price">$0</div>
-          <ul>
-            <li>Live skeleton tracking</li>
-            <li>Analyze any video, recorded or from your camera roll</li>
-          </ul>
-        </div>
-        <div class="plan pro">
-          <span class="tag">{{trialDays}}-day free trial</span>
-          <h3>{{appName}} Pro</h3>
-          <div class="price">{{priceYearly}}<small> / year</small></div>
-          <p class="muted">or {{priceMonthly}} / month. Cancel anytime.</p>
-          <ul>
-            <li>Every sport's analyses and continuous sessions</li>
-            <li>Guides, 30+ yoga poses, rehab and range of motion</li>
-            <li>Unlimited moves of your own and custom sports</li>
-            <li>{{coachName}} voice coaching, routines, progress, 3D replay</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt">
-    <div class="wrap center">
-      <div class="eyebrow">For coaches, teams, clinics and golf pros</div>
-      <h2>Starting right here in the Corning–Elmira area</h2>
-      <p class="lede">We're looking for local coaches, golf pros and physical therapy clinics to try {{appName}} with their athletes and patients, and help shape it.</p>
-      <div class="btn-row"><a class="btn btn-primary" href="/partners/">Become a launch partner</a></div>
-    </div>
-  </section>
-
-  <section>
+  <section class="work" id="work">
     <div class="wrap">
-      <h2 class="center">Questions</h2>
-      <div class="faq">
-        <details><summary>Do I need any equipment or sensors?</summary><p>No. Just your phone and somewhere to prop it up, 8–12 feet away with your whole body in view. A cheap phone tripod helps.</p></details>
-        <details><summary>Does it track the ball?</summary><p>It tracks you: 17 points on your body, many times a second. Dribbling, cradling and touches are measured from how your hands and feet move. Object detection (beta), which finds a club, bat or stick in your hands, can be turned on in Settings.</p></details>
-        <details><summary>Is my video uploaded anywhere?</summary><p>No. Everything is processed on your phone. Recordings stay on the device unless you share them.</p></details>
-        <details><summary>Which phones does it work on?</summary><p>iPhone (iOS 15.5 or later) and Android. Newer phones track faster in live view; recordings are analyzed in full detail on any supported phone.</p></details>
-        <details><summary>Can I use it for physical therapy?</summary><p>Yes, as a practice and tracking aid for the exercises your therapist recommends. It isn't a medical device and doesn't diagnose or treat anything.</p></details>
-        <details><summary>When is it available?</summary><p>It's in testing now. Get early access below and we'll let you know the day it lands in the App Store and Google Play.</p></details>
+      <div class="eyebrow">Our work</div>
+      <h2 style="margin-top:12px">Recent projects</h2>
+      <p class="lede" style="margin-top:14px">Real tools in use today. Ask us for a demo of any of them.</p>
+      <div class="cases">
+        <div class="case">
+          <div class="who">Event rentals · Horseheads</div>
+          <div><h3>Quotes and invoices from a phone</h3><p>A quote and invoice app that matches the company's own templates, remembers every item and price, and sends a PDF in a couple of taps. Plus a new website with a quote request form.</p></div>
+          <div class="stat"><b>2 taps</b><span>to send a quote</span></div>
+        </div>
+        <div class="case">
+          <div class="who">Youth league · Corning–Painted Post</div>
+          <div><h3>Field scheduling for a whole league</h3><p>Coaches request field time, directors approve it, and every family sees the same calendar for eight fields across two complexes. Now with free training tools for players.</p></div>
+          <div class="stat"><b>8 fields</b><span>one shared calendar</span></div>
+        </div>
+        <div class="case">
+          <div class="who">Self-serve kiosk · Prototype</div>
+          <div><h3>Smart locker kiosk</h3><p>A touch-screen kiosk where customers pick a locker, scan a QR code, pay, and get a confirmation, with no staff at the desk.</p></div>
+          <div class="stat"><b>0 staff</b><span>at the desk</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="alt glow-cta" id="get">
-    <div class="wrap center">
-      <h2>Be first to try {{appName}}</h2>
-      <p class="lede">Coming soon to the App Store and Google Play. Join the early-access list to hear the day it launches.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="mailto:{{partnersEmail}}?subject={{appName}}%20early%20access&amp;body=Sports%20or%20activities%20I%E2%80%99m%20interested%20in%3A%20">Get early access</a>
+  <section id="products">
+    <div class="wrap">
+      <div class="eyebrow">Our apps</div>
+      <h2 style="margin-top:12px">Products we make and run ourselves</h2>
+      <div class="products">
+        <a class="prod ff" href="/formforward/">
+          <div class="top">
+            <div class="logo"><img src="/assets/img/mark.png" alt=""></div>
+            <div><div class="kind">iPhone and Android</div><h3>FormForward</h3></div>
+          </div>
+          <p>An AI motion coach in your pocket. It tracks form, counts reps and analyzes swings and shots using just the phone's camera.</p>
+          <ul><li>Golf, baseball, basketball, tennis, yoga and more</li><li>Rehab and mobility exercises for clinics</li><li>Video stays on the phone</li></ul>
+          <span class="go">Visit FormForward →</span>
+        </a>
+        <a class="prod ll" href="/cppll/">
+          <div class="top">
+            <div class="logo"><img src="/assets/img/cppll-logo.png" alt=""></div>
+            <div><div class="kind">iPhone and Android</div><h3>CPPLL Field Scheduler</h3></div>
+          </div>
+          <p>Field scheduling for Corning-Painted Post Little League: requests, approvals and one shared calendar, with free training tools for players.</p>
+          <ul><li>Coach requests and director approvals</li><li>Hitting, throwing and fielding tips for T-ball to 12</li><li>Available for other leagues and organizations</li></ul>
+          <span class="go">Visit the CPPLL app →</span>
+        </a>
+        <a class="prod golf" href="/golfswingai/">
+          <div class="top">
+            <div class="logo"><img src="/assets/img/logo.png" alt=""></div>
+            <div><div class="kind">Camera and app</div><h3>Golf Swing AI <span class="soon">In development</span></h3></div>
+          </div>
+          <div class="shot"><img src="/assets/img/golf-swing-ai-camera.png" alt="Golf Swing AI camera on a small tripod"></div>
+          <p>A personal swing coach on a tripod. The AI camera captures every detail of your swing mechanics and gives instant feedback.</p>
+          <ul><li>Real-time insights: technique, key body positions, swing speed</li><li>Recommendations that adapt to your style</li><li>Works with your phone or tablet</li></ul>
+          <span class="go">Learn more →</span>
+        </a>
       </div>
-      <div class="btn-row">
-        <span class="badge-soon">App Store · coming soon</span>
-        <span class="badge-soon">Google Play · coming soon</span>
+    </div>
+  </section>
+
+  <section class="eng" id="engineering">
+    <div class="wrap">
+      <div class="intro">
+        <div class="eyebrow">Engineering services</div>
+        <h2>AI at the edge, with IoT and vision</h2>
+        <p class="lede">For manufacturers and larger teams, the same engineers take on bigger systems: cameras on the line, sensors in the field, and data that finally flows to the people who need it.</p>
+        <div class="own">
+          <b>You own what we build</b>
+          <p>We're not gatekeepers of your data. You keep the code and the infrastructure, and we train your team to run and extend it.</p>
+        </div>
       </div>
+      <ul>
+        <li><b>Camera inspection and defect detection</b><span>Machine vision and image classification that spots defects consistently, shift after shift.</span></li>
+        <li><b>Edge AI and IoT</b><span>Models that run on the device itself: fast, private, and working even when the network isn't.</span></li>
+        <li><b>Integration and workflow automation</b><span>Connect new tools to the systems you already run, without starting over.</span></li>
+        <li><b>Cloud migration and management</b><span>Move off aging servers and keep costs predictable.</span></li>
+        <li><b>Data analytics and business intelligence</b><span>Dashboards and reports built on data you can trust.</span></li>
+        <li><b>Consulting and training</b><span>Technology strategy, choosing the right tools, and hands-on training for your people.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="eyebrow">How we work</div>
+      <h2 style="margin-top:12px">From a conversation to a tool you use every day</h2>
+      <div class="steps">
+        <div class="step"><h3>Talk</h3><p>A free 30-minute consult. Show us the task that eats your week, the paper forms, the spreadsheets.</p></div>
+        <div class="step"><h3>Prototype</h3><p>We build a working first version you can tap through, so you can see it before you commit.</p></div>
+        <div class="step"><h3>Launch</h3><p>We set it up on your phones and computers, bring in your existing data, and train your team.</p></div>
+        <div class="step"><h3>Support</h3><p>A local person to call. We fix issues and add features as your business grows.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="pitch">
+        <div class="eyebrow">Free consult</div>
+        <h2>Tell us what's eating your week</h2>
+        <p class="lede">No jargon and no obligation. We'll tell you honestly whether software can help, and roughly what it would take.</p>
+        <div class="email"><span id="addr">hello@analytitech.net</span><button type="button" id="copy">Copy</button></div>
+      </div>
+      <form class="ask" id="ask">
+        <label for="name">Your name<input id="name" autocomplete="name" placeholder="Jamie Smith"></label>
+        <label for="biz">Business or organization<input id="biz" placeholder="Smith Landscaping"></label>
+        <label for="what">What would you like to stop doing by hand?<textarea id="what" placeholder="We write every estimate in Word and email it, then retype it as an invoice…"></textarea></label>
+        <button class="btn btn-primary" type="submit">Write the email</button>
+        <p class="fine" style="color:var(--muted);font-size:0.85rem">Opens your email app with this filled in, addressed to hello@analytitech.net.</p>
+      </form>
     </div>
   </section>
 </main>
 
-{{> footer}}
+<footer>
+  <div class="wrap">
+    <div>© {{year}} AnalytiTech, LLC · Corning–Elmira, New York</div>
+    <nav>
+      <a href="/formforward/">FormForward</a>
+      <a href="/cppll/">CPPLL app</a>
+      <a href="/golfswingai/">Golf Swing AI</a>
+      <a href="#contact">Contact</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const task = $("task"), per = $("per"), mins = $("mins"), rate = $("rate");
+  const fmt = new Intl.NumberFormat("en-US");
+  function update() {
+    const hours = Math.max(0, +per.value || 0) * Math.max(0, +mins.value || 0) * 52 * 0.7 / 60;
+    $("hours").textContent = fmt.format(Math.round(hours));
+    $("dollars").textContent = "$" + fmt.format(Math.round(hours * Math.max(0, +rate.value || 0)));
+  }
+  task.addEventListener("change", () => {
+    const [p, m] = task.value.split("|");
+    per.value = p; mins.value = m; update();
+  });
+  [per, mins, rate].forEach((el) => el.addEventListener("input", update));
+  update();
+  $("copy").addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText($("addr").textContent); $("copy").textContent = "Copied"; }
+    catch { const r = document.createRange(); r.selectNodeContents($("addr")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  });
+  $("ask").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const biz = $("biz").value.trim();
+    const subject = "Free consult" + (biz ? " for " + biz : "");
+    const text = [$("what").value.trim(), "", $("name").value.trim(), biz].filter((l, i) => i < 2 || l).join("\n");
+    location.href = "mailto:hello@analytitech.net?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
+  });
+})();
+</script>
 </body>
 </html>

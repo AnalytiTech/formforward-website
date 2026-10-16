@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Golf Swing AI · AnalytiTech</title>
+<meta name="description" content="Golf Swing AI is a personal swing coach on a tripod: an AI camera that captures your swing mechanics and gives instant, personalized feedback. In development at AnalytiTech.">
+<link rel="icon" href="/assets/img/logo.png">
+<meta name="theme-color" content="#0B1F24">
+<meta property="og:title" content="Golf Swing AI">
+<meta property="og:image" content="{{domain}}/assets/img/golf-swing-ai-camera.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/business.css">
+<style>
+  .golf-hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .golf-hero .pitch { display: grid; gap: 20px; min-width: 0; }
+  .rig { background: #F4F7F6; border-radius: 24px; padding: 24px; display: grid; place-items: center; }
+  .rig img { width: 100%; max-width: 420px; height: auto; }
+  .feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+  .feat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 24px; display: grid; gap: 8px; align-content: start; }
+  .feat p { color: var(--muted); }
+  .feat svg { width: 32px; height: 32px; stroke: var(--teal); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .updates { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  @media (max-width: 860px) { .golf-hero .wrap { grid-template-columns: 1fr; } .feats { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+{{> company_header}}
+<main>
+  <section class="golf-hero">
+    <div class="wrap">
+      <div class="pitch">
+        <div class="eyebrow">In development</div>
+        <h1>Golf Swing AI</h1>
+        <p class="lede">Your personal swing coach on a tripod. Our AI camera captures every detail of your swing mechanics and gives you instant analysis and personalized feedback, whether you're a professional or just starting out.</p>
+        <div class="updates">
+          <a class="btn btn-primary" href="mailto:hello@analytitech.net?subject=Golf%20Swing%20AI%20updates&amp;body=Please%20let%20me%20know%20when%20Golf%20Swing%20AI%20is%20available.">Get release updates</a>
+          <a class="btn btn-ghost" href="/formforward/">Try FormForward today</a>
+        </div>
+        <p class="fine" style="color:var(--muted);font-size:0.9rem">Want swing analysis now? FormForward analyzes golf swings and putting strokes with just your phone.</p>
+      </div>
+      <div class="rig"><img src="/assets/img/golf-swing-ai-camera.png" alt="The Golf Swing AI camera on a small tripod"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow">Key features</div>
+      <div class="feats">
+        <div class="feat">
+          <svg viewBox="0 0 32 32"><path d="M4 22l7-7 5 5 12-12"/><path d="M20 8h8v8"/></svg>
+          <h3>Real-time insights</h3>
+          <p>Immediate feedback on every swing: your technique, key body positions and swing speed.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 32 32"><circle cx="16" cy="11" r="5"/><path d="M6 28c1.5-6 5.5-9 10-9s8.5 3 10 9"/></svg>
+          <h3>Personalized recommendations</h3>
+          <p>The AI adapts to your style, with tailored tips and detailed feedback on your swing mechanics.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 32 32"><rect x="9" y="3" width="14" height="26" rx="3"/><path d="M14 25h4"/></svg>
+          <h3>Works with your devices</h3>
+          <p>Use Golf Swing AI with your smartphone or tablet through an easy-to-use app.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <div class="pitch">
+        <div class="eyebrow">Let's talk</div>
+        <h2>Got a product idea, or want to discuss more?</h2>
+        <p class="lede">Golf pros, ranges and fitters: we're looking for partners to try Golf Swing AI first.</p>
+      </div>
+      <div class="pitch">
+        <div class="email"><span>hello@analytitech.net</span></div>
+        <a class="btn btn-primary" style="justify-self:start" href="mailto:hello@analytitech.net?subject=Golf%20Swing%20AI">Email us</a>
+      </div>
+    </div>
+  </section>
+</main>
+{{> company_footer}}
+</body>
+</html>
