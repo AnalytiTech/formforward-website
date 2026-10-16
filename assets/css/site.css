@@ -252,3 +252,33 @@ section.glow-cta { background: linear-gradient(rgba(10,20,34,.55), rgba(10,20,34
 @media (max-width: 520px) { .sports.nine { grid-template-columns: 1fr; } }
 .feature.mac { margin-top: 56px; padding: 32px; border-radius: var(--radius); background: linear-gradient(135deg, rgba(139,124,255,.18), rgba(22,131,242,.08)); border: 1px solid rgba(139,124,255,.45); }
 @media (max-width: 760px) { .feature.mac { padding: 20px; } }
+
+/* ---------- CPPLL field scheduler pages ---------- */
+.ll { --gold: #c9a75a; }
+.ll .brand img.ll-logo { background: #fff; border-radius: 50%; padding: 2px; }
+.ll .brand span b { color: var(--gold); }
+.ll .eyebrow { color: var(--gold); }
+.ll .hero h1 span { color: var(--gold); }
+.ll .hero { background: radial-gradient(900px 520px at 85% 10%, rgba(201,167,90,.22), transparent 60%), radial-gradient(700px 420px at 10% 90%, rgba(22,131,242,.16), transparent 60%); }
+.ll-badge { width: 96px; height: 96px; background: #fff; border-radius: 50%; padding: 6px; margin-bottom: 22px; }
+.store-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+/* Mock week calendar in the hero */
+.cal { background: var(--surface); border: 1px solid var(--outline); border-radius: var(--radius); padding: 18px; box-shadow: 0 24px 60px rgba(0,0,0,.4); max-width: 460px; width: 100%; min-width: 0; justify-self: center; }
+.cal-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.cal-head b { font-family: var(--heading); }
+.cal-head span { color: var(--muted); font-size: .9rem; }
+.cal-grid { display: grid; grid-template-columns: 44px repeat(5, 1fr); gap: 4px; font-size: .78rem; }
+.cal-grid .d { text-align: center; color: var(--muted); padding-bottom: 4px; }
+.cal-grid .t { color: var(--muted); text-align: right; padding-right: 6px; }
+.cal-grid .c { background: var(--surface-high); border-radius: 6px; min-height: 34px; }
+.cal-grid .ev { border-radius: 6px; padding: 4px 6px; min-height: 34px; color: #0a1422; font-weight: 600; line-height: 1.2; overflow: hidden; }
+.ev.ok { background: var(--green); }
+.ev.gold { background: var(--gold); }
+.ev.wait { background: transparent; border: 1.5px dashed var(--gold); color: var(--gold); }
+.cal-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: .82rem; color: var(--muted); }
+.cal-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.roles .card h3 { color: var(--gold); }
+.ll .step .num { background: var(--gold); color: #0a1422; }
+.notice { background: var(--surface); border-left: 4px solid var(--gold); border-radius: 12px; padding: 16px 20px; margin: 22px 0; }
+.notice p { margin: 0; }
+@media (max-width: 900px) { .cal-grid { font-size: .7rem; } }

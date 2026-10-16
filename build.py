@@ -28,16 +28,22 @@ def main():
     if DIST.exists():
         shutil.rmtree(DIST)
     shutil.copytree(ROOT / "assets", DIST / "assets")
-    for page in (ROOT / "templates").glob("*.html"):
+    pages = sorted((ROOT / "templates").rglob("*.html"))
+    for page in pages:
         out = render(page.read_text(), values, partials)
-        # Pretty URLs: privacy.html -> privacy/index.html (index stays put).
-        target = DIST / ("index.html" if page.stem == "index" or page.stem == "404" else f"{page.stem}/index.html")
-        if page.stem == "404":
+        # Pretty URLs: privacy.html -> privacy/index.html, cppll/privacy.html ->
+        # cppll/privacy/index.html; index.html stays put in its folder.
+        rel = page.relative_to(ROOT / "templates")
+        if rel == Path("404.html"):
             target = DIST / "404.html"
+        elif page.stem == "index":
+            target = DIST / rel
+        else:
+            target = DIST / rel.parent / page.stem / "index.html"
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(out)
     (DIST / "CNAME").write_text(values["domain"].split("//")[-1] + "\n")
-    print(f"Built {len(list((ROOT / 'templates').glob('*.html')))} pages into dist/")
+    print(f"Built {len(pages)} pages into dist/")
 
 
 if __name__ == "__main__":

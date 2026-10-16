@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{> head}}
+<title>{{cppllAppName}} · Little League field scheduling</title>
+<meta name="description" content="The {{cppllAppName}} app lets Corning-Painted Post Little League coaches request field time, directors approve it, and parents see the schedule. Built by AnalytiTech, and available for other leagues.">
+<meta property="og:title" content="{{cppllAppName}}">
+</head>
+<body class="ll">
+{{> cppll_header}}
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <img class="ll-badge" src="/assets/img/cppll-logo.png" alt="Corning-Painted Post Little League logo">
+        <div class="eyebrow">Corning-Painted Post Little League</div>
+        <h1>Every field, every practice, <span>one calendar</span></h1>
+        <p class="lede">Coaches request field time from their phones. The league director approves it in a tap. Parents and coaches always see the same up-to-date schedule for the Corning and Painted Post fields.</p>
+        <div class="store-row" id="get">
+          <a class="btn btn-primary" href="{{cppllAppStoreUrl}}">Download for iPhone</a>
+          <a class="btn btn-outline" href="{{cppllPlayStoreUrl}}">Get it on Google Play</a>
+        </div>
+      </div>
+      <div class="cal" aria-label="Example week of field reservations">
+        <div class="cal-head"><b>Painted Post · Field 2</b><span>Week view</span></div>
+        <div class="cal-grid">
+          <div></div><div class="d">Mon</div><div class="d">Tue</div><div class="d">Wed</div><div class="d">Thu</div><div class="d">Fri</div>
+          <div class="t">5 pm</div><div class="ev ok">Pirates practice</div><div class="c"></div><div class="ev ok">Cubs practice</div><div class="c"></div><div class="ev wait">Mets (pending)</div>
+          <div class="t">6 pm</div><div class="c"></div><div class="ev gold">Game: Rays v Tigers</div><div class="c"></div><div class="ev ok">Pirates practice</div><div class="c"></div>
+          <div class="t">7 pm</div><div class="ev wait">Cubs (pending)</div><div class="c"></div><div class="c"></div><div class="c"></div><div class="ev ok">Majors practice</div>
+        </div>
+        <div class="cal-legend"><span><i style="background:var(--green)"></i>Approved</span><span><i style="border:1.5px dashed var(--gold)"></i>Waiting for approval</span><span><i style="background:var(--gold)"></i>Game</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3>Coach requests</h3><p class="muted">Pick Corning or Painted Post, the field, the date and a start and end time. The app flags any clash with an approved booking before it's sent.</p></div>
+        <div class="step"><div class="num">2</div><h3>Director approves</h3><p class="muted">Requests land in one list for the director. Approve or reject in a tap, and the calendar updates for everyone.</p></div>
+        <div class="step"><div class="num">3</div><h3>Everyone sees it</h3><p class="muted">Month and week views of every field. No more group-text schedules or two teams showing up for the same diamond.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Built around league roles</h2>
+      <div class="cards roles">
+        <div class="card"><h3>Parents</h3><p>See when and where your player's team practices and plays, for every field in the league.</p></div>
+        <div class="card"><h3>Coaches</h3><p>Request field time, check the calendar before you plan practice, and cancel a booking you no longer need.</p></div>
+        <div class="card"><h3>Directors</h3><p>Approve or reject requests, manage reservations, and set who in the league is a parent, coach or director.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leagues">
+    <div class="wrap center">
+      <div class="eyebrow">For other leagues</div>
+      <h2>Want this for your league?</h2>
+      <p class="lede">AnalytiTech built this app for our own local league, and we can set up the same thing for yours: your fields, your logo, your coaches and directors. That goes for Little League, softball, soccer, or any organization that shares fields, gyms or rinks.</p>
+      <div class="cards" style="text-align:left">
+        <div class="card"><h3>Your fields and branding</h3><p>Your complexes, fields and colors, in an app your families can download from the App Store and Google Play.</p></div>
+        <div class="card"><h3>Scheduling tools</h3><p>Field reservations with approvals, conflict checks, and season schedule building for games and practices.</p></div>
+        <div class="card"><h3>Set up by a local team</h3><p>We'll set it up with your board and bring your coaches and directors on board, and we stay on call during the season.</p></div>
+      </div>
+      <div class="btn-row"><a class="btn btn-primary" href="mailto:{{partnersEmail}}?subject=Field%20scheduling%20app%20for%20our%20league">Email us about your league</a></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Account and privacy</h2>
+      <div class="cards">
+        <div class="card"><h3>Your data</h3><p>We keep only what scheduling needs: your name, email, role and the reservations you make. No ads and no tracking. <a href="/cppll/privacy/">Read the privacy policy</a>.</p></div>
+        <div class="card"><h3>Delete your account</h3><p>Delete it yourself in the app under Settings → Delete Account, or ask us to do it by email. <a href="/cppll/delete-account/">How to delete your account</a>.</p></div>
+        <div class="card"><h3>Help</h3><p>Trouble signing in or need your role changed? Contact your league director, or email <a href="mailto:{{supportEmail}}">{{supportEmail}}</a>.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+{{> cppll_footer}}
+</body>
+</html>

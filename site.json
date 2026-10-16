@@ -13,5 +13,9 @@
   "trialDays": "3",
   "year": "2026",
   "updated": "October 12, 2026",
-  "tagline": "Practice · Understand · Improve"
+  "tagline": "Practice \u00b7 Understand \u00b7 Improve",
+  "cppllAppName": "CPPLL Field Scheduler",
+  "cppllAppStoreUrl": "https://apps.apple.com/us/app/cppll-field-scheduler/id6741393158",
+  "cppllPlayStoreUrl": "https://play.google.com/store/apps/details?id=com.analytitech.cppll_fields",
+  "cppllUpdated": "October 15, 2026"
 }

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{> head}}
+<title>Delete your account · {{cppllAppName}}</title>
+<meta name="description" content="How to delete your {{cppllAppName}} account and data, in the app or by email.">
+</head>
+<body class="ll">
+{{> cppll_header}}
+<main class="doc">
+  <h1>Delete your {{cppllAppName}} account</h1>
+  <p>{{cppllAppName}} (the CPPLL field scheduling app) is published by {{company}}. You can delete your account and its data at any time, in either of these two ways.</p>
+
+  <h2>Option 1: in the app</h2>
+  <ol>
+    <li>Open {{cppllAppName}} and sign in.</li>
+    <li>Tap <strong>Settings</strong>.</li>
+    <li>Tap <strong>Delete Account</strong> (“Permanently remove your account”).</li>
+    <li>Enter your password to confirm.</li>
+  </ol>
+  <p>Your account is deleted immediately.</p>
+
+  <h2>Option 2: by email (no app needed)</h2>
+  <p>Email <a href="mailto:{{supportEmail}}?subject=CPPLL%20app%20account%20deletion%20request">{{supportEmail}}</a> from the email address you signed up with, with the subject “CPPLL app account deletion request”. We'll confirm by reply and delete your account and data within 30 days, usually much sooner.</p>
+  <div class="btn-row"><a class="btn btn-primary" href="mailto:{{supportEmail}}?subject=CPPLL%20app%20account%20deletion%20request&amp;body=Please%20delete%20my%20CPPLL%20Field%20Scheduler%20account%20for%20this%20email%20address.">Request deletion by email</a></div>
+
+  <h2>What gets deleted</h2>
+  <ul>
+    <li><strong>Your sign-in account</strong>: your email address and password.</li>
+    <li><strong>Your profile</strong>: your name and league role (parent, coach or director).</li>
+  </ul>
+
+  <h2>What may be kept</h2>
+  <p>Field reservations you made are part of the league's shared calendar, so past and upcoming bookings can stay on the calendar under the name and email they were made with. To have those removed or anonymized as well, say so in your email and we'll do it, unless the league needs a booking kept for an upcoming game or practice. We keep nothing else after deletion. Routine system backups are overwritten within 30 days.</p>
+
+  <p>Questions? Email <a href="mailto:{{supportEmail}}">{{supportEmail}}</a>. See also our <a href="/cppll/privacy/">privacy policy</a>.</p>
+</main>
+{{> cppll_footer}}
+</body>
+</html>
