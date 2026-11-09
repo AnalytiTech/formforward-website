@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Body Blitz · AnalytiTech</title>
+<meta name="description" content="Body Blitz is an arcade game where your body is the controller. Prop up your phone, step back, and punch, kick, duck and dodge. Coming soon for iPhone and Android.">
+<link rel="icon" href="/assets/img/bodyblitz-icon.png">
+<link rel="apple-touch-icon" href="/assets/img/bodyblitz-icon.png">
+<meta name="theme-color" content="#0B1F24">
+<meta property="og:title" content="Body Blitz: Move to Play">
+<meta property="og:description" content="Your body is the controller. Punch, dodge, duck and jump.">
+<meta property="og:image" content="{{domain}}/assets/img/bodyblitz-banner.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/business.css">
+<style>
+  .bb-hero .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; }
+  .bb-hero .pitch { display: grid; gap: 20px; min-width: 0; }
+  .bb-hero .title { display: flex; align-items: center; gap: 16px; }
+  .bb-hero .title img { width: 72px; height: 72px; border-radius: 18px; flex: none; }
+  .banner img { width: 100%; height: auto; border-radius: 20px; display: block; box-shadow: 0 20px 50px rgba(10, 20, 34, .25); }
+  .stores { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .store { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 12px; background: #0A1422; color: #fff; font-weight: 600; font-size: .95rem; }
+  .store small { display: block; font: 600 .68rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: #8FB3C9; }
+  .feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+  .feat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 24px; display: grid; gap: 8px; align-content: start; }
+  .feat p, .feat li { color: var(--muted); }
+  .feat ul { margin: 0; padding-left: 1.1em; }
+  .feat svg { width: 32px; height: 32px; stroke: var(--teal); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; counter-reset: s; }
+  .steps3 div { border-top: 3px solid var(--teal); padding-top: 14px; display: grid; gap: 6px; }
+  .steps3 div::before { counter-increment: s; content: counter(s); font: 800 2rem var(--display, inherit); color: var(--teal); }
+  .steps3 p { color: var(--muted); }
+  .safety { border: 2px solid #E5A100; background: rgba(229, 161, 0, .08); border-radius: var(--r); padding: 24px; display: grid; gap: 10px; }
+  .safety p { color: var(--ink); }
+  .price { display: grid; gap: 10px; }
+  @media (max-width: 860px) { .bb-hero .wrap, .feats, .steps3 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+{{> company_header}}
+<main>
+  <section class="bb-hero">
+    <div class="wrap">
+      <div class="pitch">
+        <div class="eyebrow">Coming soon · iPhone and Android</div>
+        <div class="title"><img src="/assets/img/bodyblitz-icon.png" alt="Body Blitz app icon"><h1>Body Blitz</h1></div>
+        <p class="lede">An arcade game where <strong>your body is the controller</strong>. Prop up your phone, step back, and Body Blitz tracks your whole body through the camera. Punch glowing orbs, kick, jump, duck under walls and dodge meteors. No wearables, no controllers and no account.</p>
+        <div class="stores">
+          <span class="store"><span><small>Coming soon</small>App Store</span></span>
+          <span class="store"><span><small>Coming soon</small>Google Play</span></span>
+        </div>
+        <a class="btn btn-ghost" style="justify-self:start" href="mailto:{{supportEmail}}?subject=Body%20Blitz%20launch&amp;body=Please%20let%20me%20know%20when%20Body%20Blitz%20is%20available.">Tell me when it launches</a>
+      </div>
+      <div class="banner"><img src="/assets/img/bodyblitz-banner.jpg" alt="Body Blitz: your body is the controller. Punch, dodge, duck and jump."></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow">How to play</div>
+      <div class="steps3">
+        <div><h3>Prop up your phone</h3><p>Lean it sideways on something steady, about waist high. A small phone tripod makes this easy.</p></div>
+        <div><h3>Step back</h3><p>About 6 to 8 feet, so the camera sees you head to toe. The game's voice tells you when you're in the right spot.</p></div>
+        <div><h3>Move to play</h3><p>Hit every move as it comes. Fast reactions score more, and combos build your multiplier.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow">What's inside</div>
+      <div class="feats">
+        <div class="feat">
+          <svg viewBox="0 0 32 32"><path d="M18 3L7 18h8l-2 11 12-16h-8z"/></svg>
+          <h3>Three levels</h3>
+          <ul><li><b>Warm Up</b>: learn the moves (free)</li><li><b>Blitz</b>: every move, faster</li><li><b>Overdrive</b>: far moves, no rest</li></ul>
+          <p>Plus <b>Progressive</b>, where each round gets harder until you drop.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 32 32"><circle cx="11" cy="10" r="4"/><circle cx="22" cy="10" r="4"/><path d="M3 27c1-5 4-8 8-8s7 3 8 8M17 21c1.3-1.3 3-2 5-2 4 0 7 3 8 8"/></svg>
+          <h3>Play together</h3>
+          <p>Take turns in knockout rounds with a rising score bar. Play solo, as a family, or team against team, with saved players, a leaderboard and trophies.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 32 32"><rect x="6" y="14" width="20" height="14" rx="3"/><path d="M11 14V9a5 5 0 0 1 10 0v5"/></svg>
+          <h3>Private by design</h3>
+          <p>Tracking runs on your phone. Your video is never recorded or uploaded, and there's no account to make. <a href="/bodyblitz/privacy/">Privacy policy</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="feats" style="grid-template-columns:1fr 1fr">
+        <div class="feat price">
+          <div class="eyebrow">Price</div>
+          <h3>Try it free, unlock once</h3>
+          <p>Warm Up is free, so you can check the game works in your space. One payment unlocks Blitz, Overdrive, Progressive and every multiplayer game. No subscription and no ads.</p>
+          <p>Deleted the game or got a new phone? Restore your purchase free with the same Apple or Google account. <a href="/bodyblitz/support/">Support</a></p>
+        </div>
+        <div class="safety">
+          <div class="eyebrow" style="color:#B27C00">Health and safety</div>
+          <h3>Body Blitz is a workout</h3>
+          <p>It's physically demanding and can challenge you physically. Only play if you know you're healthy enough for vigorous exercise; you're responsible for your own health and safety. Clear your space, and stop if anything hurts. Players under 18 need a parent or guardian's agreement and supervision.</p>
+          <p><a href="/bodyblitz/terms/">Read the full health and safety information</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <div class="pitch">
+        <div class="eyebrow">Questions?</div>
+        <h2>We're happy to help</h2>
+        <p class="lede">Gyms, schools and family centers: ask us about using Body Blitz for groups.</p>
+      </div>
+      <div class="pitch">
+        <div class="email"><span>{{supportEmail}}</span></div>
+        <a class="btn btn-primary" style="justify-self:start" href="mailto:{{supportEmail}}?subject=Body%20Blitz">Email us</a>
+      </div>
+    </div>
+  </section>
+</main>
+{{> company_footer}}
+</body>
+</html>
