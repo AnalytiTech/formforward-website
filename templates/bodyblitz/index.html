@@ -11,6 +11,7 @@
 <meta property="og:title" content="Body Blitz: Move to Play">
 <meta property="og:description" content="Your body is the controller. Punch, dodge, duck and jump.">
 <meta property="og:image" content="{{domain}}/assets/img/bodyblitz-banner.jpg">
+<meta property="og:video" content="{{domain}}/assets/video/bodyblitz-promo.mp4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -36,25 +37,115 @@
   .safety { border: 2px solid #E5A100; background: rgba(229, 161, 0, .08); border-radius: var(--r); padding: 24px; display: grid; gap: 10px; }
   .safety p { color: var(--ink); }
   .price { display: grid; gap: 10px; }
-  @media (max-width: 860px) { .bb-hero .wrap, .feats, .steps3 { grid-template-columns: 1fr; } }
+
+  /* Neon showcase: the game's own look, the same in light and dark mode. */
+  .bb-neon { --n-bg: #0A1422; --n-ink: #F2F6FF; --n-muted: #A9B8D6; --n-aqua: #65FFEF; --n-pink: #FF3D9A; --n-orange: #FF8A1F; --n-gold: #FFD23F;
+    position: relative; overflow: hidden; background: var(--n-bg); color: var(--n-ink); isolation: isolate; }
+  .bb-neon::before { content: ""; position: absolute; inset: 0; z-index: -2;
+    background: radial-gradient(60% 55% at 78% 30%, rgba(255, 61, 154, .38), transparent 70%),
+                radial-gradient(45% 50% at 12% 15%, rgba(101, 255, 239, .16), transparent 70%),
+                linear-gradient(180deg, #120E2E 0%, #0A1422 70%); }
+  .bb-neon::after { content: ""; position: absolute; left: -10%; right: -10%; bottom: 0; height: 42%; z-index: -1; opacity: .5;
+    background: linear-gradient(transparent 0 96%, rgba(101, 255, 239, .55) 96% 100%) 0 0 / 100% 36px,
+                linear-gradient(90deg, transparent 0 97.5%, rgba(255, 61, 154, .5) 97.5% 100%) 0 0 / 48px 100%;
+    transform: perspective(420px) rotateX(58deg); transform-origin: bottom;
+    -webkit-mask-image: linear-gradient(transparent, #000 60%); mask-image: linear-gradient(transparent, #000 60%); }
+  .bb-neon h1, .bb-neon h2, .bb-neon h3 { color: var(--n-ink); }
+  .bb-neon .lede, .bb-neon p { color: var(--n-muted); }
+  .bb-neon .lede strong { color: var(--n-ink); }
+  .bb-neon .eyebrow { color: var(--n-aqua); }
+  .bb-neon a:not(.btn) { color: var(--n-aqua); }
+  .glow { background: linear-gradient(90deg, var(--n-aqua), #B9A8FF 45%, var(--n-pink)); -webkit-background-clip: text; background-clip: text; color: transparent !important;
+    filter: drop-shadow(0 0 18px rgba(255, 61, 154, .35)); }
+  .bb-hero { padding-block: clamp(48px, 7vw, 96px); }
+  .bb-hero .wrap { grid-template-columns: 1.15fr .85fr; }
+  .bb-hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: .95; letter-spacing: -.02em; }
+  .bb-hero .store { background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .16); }
+  .bb-hero .btn-ghost { color: var(--n-ink); border-color: rgba(255, 255, 255, .35); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font: 700 .78rem var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px;
+    border: 1.5px solid currentColor; box-shadow: 0 0 12px -2px currentColor inset, 0 0 10px -4px currentColor; }
+  .chip:nth-child(4n+1) { color: var(--n-aqua); } .chip:nth-child(4n+2) { color: var(--n-pink); }
+  .chip:nth-child(4n+3) { color: var(--n-orange); } .chip:nth-child(4n) { color: var(--n-gold); }
+
+  .phone { position: relative; justify-self: center; width: min(340px, 78vw); padding: 10px; border-radius: 44px;
+    background: linear-gradient(145deg, #3A3F4A, #15181F); box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset, 0 30px 80px rgba(255, 61, 154, .35), 0 0 120px rgba(101, 255, 239, .15); }
+  .phone video, .phone img { width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 35px; display: block; background: #0A1422; }
+  .phone.wide { width: 100%; max-width: 960px; border-radius: 40px; }
+  .phone.wide video { aspect-ratio: 1280 / 590; border-radius: 31px; }
+  .sound { position: absolute; right: 22px; bottom: 22px; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border: 0; border-radius: 999px;
+    background: rgba(10, 20, 34, .78); color: #fff; font: 600 .8rem var(--body); cursor: pointer; backdrop-filter: blur(6px); }
+  .sound svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .sound:focus-visible { outline: 2px solid var(--n-aqua); outline-offset: 2px; }
+
+  .bb-action { padding-block: clamp(48px, 6vw, 80px); border-top: 1px solid rgba(255,255,255,.08); }
+  .bb-action .wrap { display: grid; gap: 28px; justify-items: center; text-align: center; }
+  .bb-action .head { display: grid; gap: 10px; max-width: 640px; }
+
+  .gallery { display: grid; grid-auto-flow: column; grid-auto-columns: min(78%, 560px); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 6px 2px 18px; margin-top: 28px; scrollbar-width: thin; }
+  .gallery figure { margin: 0; scroll-snap-align: start; display: grid; gap: 10px; }
+  .gallery img { width: 100%; height: auto; aspect-ratio: 1434 / 660; border-radius: 16px; display: block; box-shadow: 0 14px 34px rgba(10, 20, 34, .22); }
+  .gallery figcaption { color: var(--muted); font-size: .95rem; }
+  .gallery figcaption b { color: var(--ink); }
+  .gal-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
+  .gal-nav { display: flex; gap: 8px; }
+  .gal-nav button { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; font-size: 1.1rem; }
+  @media (prefers-reduced-motion: reduce) { .gallery { scroll-behavior: auto; } }
+  @media (max-width: 860px) { .bb-hero .wrap, .feats, .steps3 { grid-template-columns: 1fr; } .bb-hero .phone { margin-top: 12px; } .phone.wide { border-radius: 26px; padding: 7px; } .phone.wide video { border-radius: 20px; } }
 </style>
 </head>
 <body>
 {{> company_header}}
 <main>
-  <section class="bb-hero">
+  <section class="bb-hero bb-neon">
     <div class="wrap">
       <div class="pitch">
         <div class="eyebrow">Coming soon · iPhone and Android</div>
-        <div class="title"><img src="/assets/img/bodyblitz-icon.png" alt="Body Blitz app icon"><h1>Body Blitz</h1></div>
-        <p class="lede">An arcade game where <strong>your body is the controller</strong>. Prop up your phone, step back, and Body Blitz tracks your whole body through the camera. Punch glowing orbs, kick, jump, duck under walls and dodge meteors. No wearables, no controllers and no account.</p>
+        <div class="title"><img src="/assets/img/bodyblitz-icon.png" alt="Body Blitz app icon"><h1 class="glow">Body Blitz</h1></div>
+        <p class="lede">An arcade game where <strong>your body is the controller</strong>. Prop up your phone, step back, and Body Blitz tracks your whole body through the camera. Punch glowing orbs, kick, jump, duck under lasers, dodge meteors and slide past walls. No wearables, no controllers and no account.</p>
+        <div class="chips" aria-label="Moves in the game"><span class="chip">Punch</span><span class="chip">Kick</span><span class="chip">Jump</span><span class="chip">Duck</span><span class="chip">Dodge</span><span class="chip">Arms up</span><span class="chip">T-pose</span><span class="chip">Move left</span></div>
         <div class="stores">
           <span class="store"><span><small>Coming soon</small>App Store</span></span>
           <span class="store"><span><small>Coming soon</small>Google Play</span></span>
         </div>
         <a class="btn btn-ghost" style="justify-self:start" href="mailto:{{supportEmail}}?subject=Body%20Blitz%20launch&amp;body=Please%20let%20me%20know%20when%20Body%20Blitz%20is%20available.">Tell me when it launches</a>
       </div>
-      <div class="banner"><img src="/assets/img/bodyblitz-banner.jpg" alt="Body Blitz: your body is the controller. Punch, dodge, duck and jump."></div>
+      <div class="phone">
+        <video src="/assets/video/bodyblitz-promo.mp4" poster="/assets/img/bodyblitz/promo-poster.jpg" muted loop playsinline preload="metadata" data-autoplay aria-label="Body Blitz promo: no controller, just you. Punch, kick, arms up, jump, dodge. Play together, take turns."></video>
+        <button class="sound" type="button" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="wave" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" style="display:none"/><path class="x" d="m16 9 6 6m0-6-6 6"/></svg><span>Sound on</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="bb-action bb-neon">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">See it in action</div>
+        <h2>A real round, start to finish</h2>
+        <p>Recorded from the game itself, voice calls and all. The glowing figure is the game's skeleton view: on your phone, it follows you.</p>
+      </div>
+      <div class="phone wide">
+        <video src="/assets/video/bodyblitz-gameplay.mp4" poster="/assets/img/bodyblitz/gameplay-poster.jpg" muted loop playsinline preload="metadata" data-autoplay aria-label="Fifteen seconds of Body Blitz gameplay: a countdown, then punch, arms up, kick, move left past a wall, duck, jump, and Blitz complete."></video>
+        <button class="sound" type="button" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="wave" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" style="display:none"/><path class="x" d="m16 9 6 6m0-6-6 6"/></svg><span>Sound on</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="gal-head">
+        <div><div class="eyebrow">Screenshots</div><h2>Every move is a target</h2></div>
+        <div class="gal-nav"><button type="button" data-dir="-1" aria-label="Previous screenshot">‹</button><button type="button" data-dir="1" aria-label="Next screenshot">›</button></div>
+      </div>
+      <div class="gallery" tabindex="0" aria-label="Body Blitz screenshots">
+        <figure><img src="/assets/img/bodyblitz/shot-02.jpg" alt="Punching a glowing orb for 414 points" loading="lazy" width="1434" height="660"><figcaption><b>Punch.</b> Hit the orb before its ring closes. Faster hits score more.</figcaption></figure>
+        <figure><img src="/assets/img/bodyblitz/shot-04.jpg" alt="Dodging a meteor" loading="lazy" width="1434" height="660"><figcaption><b>Dodge.</b> Lean out of the meteor's path.</figcaption></figure>
+        <figure><img src="/assets/img/bodyblitz/shot-05.jpg" alt="Moving left away from a red wall" loading="lazy" width="1434" height="660"><figcaption><b>Move.</b> Step clear before the wall comes through.</figcaption></figure>
+        <figure><img src="/assets/img/bodyblitz/shot-06.jpg" alt="Kicking a target near the floor" loading="lazy" width="1434" height="660"><figcaption><b>Kick.</b> Low targets need a foot.</figcaption></figure>
+        <figure><img src="/assets/img/bodyblitz/shot-03.jpg" alt="Stretching a leg out to a target with a times-four combo" loading="lazy" width="1434" height="660"><figcaption><b>Combos.</b> Keep hitting to raise your multiplier.</figcaption></figure>
+        <figure><img src="/assets/img/bodyblitz/shot-01.jpg" alt="The home screen with Warm Up, Blitz and Overdrive levels" loading="lazy" width="1434" height="660"><figcaption><b>Pick a level.</b> Warm Up is free; the rest unlock once.</figcaption></figure>
+      </div>
     </div>
   </section>
 
@@ -127,5 +218,39 @@
   </section>
 </main>
 {{> company_footer}}
+<script>
+  (function () {
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('video[data-autoplay]').forEach(function (v) {
+      if (still) { v.controls = true; return; }
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { var p = v.play(); if (p) p.catch(function () { v.controls = true; }); } else v.pause(); });
+        }, { threshold: 0.35 }).observe(v);
+      } else { v.autoplay = true; }
+    });
+    document.querySelectorAll('.sound').forEach(function (b) {
+      var v = b.parentElement.querySelector('video');
+      b.addEventListener('click', function () {
+        var on = v.muted;
+        document.querySelectorAll('video').forEach(function (o) { if (o !== v) o.muted = true; });
+        document.querySelectorAll('.sound').forEach(function (o) { if (o !== b) set(o, false); });
+        v.muted = !on;
+        if (on) { v.currentTime = 0; v.play(); }
+        set(b, on);
+      });
+    });
+    function set(b, on) {
+      b.setAttribute('aria-pressed', on);
+      b.querySelector('span').textContent = on ? 'Sound off' : 'Sound on';
+      b.querySelector('.wave').style.display = on ? '' : 'none';
+      b.querySelector('.x').style.display = on ? 'none' : '';
+    }
+    var g = document.querySelector('.gallery');
+    document.querySelectorAll('.gal-nav button').forEach(function (b) {
+      b.addEventListener('click', function () { g.scrollBy({ left: +b.dataset.dir * g.firstElementChild.offsetWidth, behavior: still ? 'auto' : 'smooth' }); });
+    });
+  })();
+</script>
 </body>
 </html>
