@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Body Blitz · AnalytiTech</title>
-<meta name="description" content="Body Blitz is an arcade game where your body is the controller. Prop up your phone, step back, and punch, kick, duck and dodge. Coming soon for iPhone and Android.">
+<meta name="description" content="Body Blitz is an arcade game where your body is the controller. Prop up your phone, step back, and punch, kick, duck and dodge. Out now on the App Store for iPhone. Android coming soon.">
 <link rel="icon" href="/assets/img/bodyblitz-icon.png">
 <link rel="apple-touch-icon" href="/assets/img/bodyblitz-icon.png">
 <meta name="theme-color" content="#0B1F24">
@@ -61,6 +61,9 @@
   .bb-hero .wrap { grid-template-columns: 1.15fr .85fr; }
   .bb-hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: .95; letter-spacing: -.02em; }
   .bb-hero .store { background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .16); }
+  .bb-hero .store-live { background: #65FFEF; border-color: #65FFEF; color: #0A1422; text-decoration: none; }
+  .bb-hero .store-live small { color: #0A1422; opacity: .75; }
+  .bb-hero .store-live:hover { box-shadow: 0 0 18px rgba(101, 255, 239, .55); }
   .bb-hero .btn-ghost { color: var(--n-ink); border-color: rgba(255, 255, 255, .35); }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip { font: 700 .78rem var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px;
@@ -101,15 +104,15 @@
   <section class="bb-hero bb-neon">
     <div class="wrap">
       <div class="pitch">
-        <div class="eyebrow">Coming soon · iPhone and Android</div>
+        <div class="eyebrow">Out now on iPhone · Android coming soon</div>
         <div class="title"><img src="/assets/img/bodyblitz-icon.png" alt="Body Blitz app icon"><h1 class="glow">Body Blitz</h1></div>
         <p class="lede">An arcade game where <strong>your body is the controller</strong>. Prop up your phone, step back, and Body Blitz tracks your whole body through the camera. Punch glowing orbs, kick, jump, duck under lasers, dodge meteors and slide past walls. No wearables, no controllers and no account.</p>
         <div class="chips" aria-label="Moves in the game"><span class="chip">Punch</span><span class="chip">Kick</span><span class="chip">Jump</span><span class="chip">Duck</span><span class="chip">Dodge</span><span class="chip">Arms up</span><span class="chip">T-pose</span><span class="chip">Move left</span></div>
         <div class="stores">
-          <span class="store"><span><small>Coming soon</small>App Store</span></span>
+          <a class="store store-live" href="https://apps.apple.com/us/app/body-blitz/id6832398902" target="_blank" rel="noopener"><span><small>Download on the</small>App Store</span></a>
           <span class="store"><span><small>Coming soon</small>Google Play</span></span>
         </div>
-        <a class="btn btn-ghost" style="justify-self:start" href="mailto:{{supportEmail}}?subject=Body%20Blitz%20launch&amp;body=Please%20let%20me%20know%20when%20Body%20Blitz%20is%20available.">Tell me when it launches</a>
+        <a class="btn btn-ghost" style="justify-self:start" href="mailto:{{supportEmail}}?subject=Body%20Blitz%20on%20Android&amp;body=Please%20let%20me%20know%20when%20Body%20Blitz%20is%20on%20Google%20Play.">Tell me when it's on Android</a>
       </div>
       <div class="phone">
         <video src="/assets/video/bodyblitz-promo.mp4" poster="/assets/img/bodyblitz/promo-poster.jpg" muted loop playsinline preload="metadata" data-autoplay aria-label="Body Blitz promo: no controller, just you. Punch, kick, arms up, jump, dodge. Play together, take turns."></video>
