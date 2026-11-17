@@ -43,7 +43,28 @@ def main():
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(out)
     (DIST / "CNAME").write_text(values["domain"].split("//")[-1] + "\n")
+    write_sitemap(values["domain"])
     print(f"Built {len(pages)} pages into dist/")
+
+
+def write_sitemap(domain):
+    """sitemap.xml lists every built page except 404; robots.txt points to it."""
+    import datetime
+    today = datetime.date.today().isoformat()
+    urls = []
+    for f in sorted(DIST.rglob("index.html")):
+        if f.parent.name == "assets" or "assets" in f.relative_to(DIST).parts:
+            continue
+        html = f.read_text()
+        if 'name="robots" content="noindex' in html:
+            continue
+        rel = f.parent.relative_to(DIST).as_posix()
+        urls.append(domain + "/" + (rel + "/" if rel != "." else ""))
+    body = "".join(f"  <url><loc>{u}</loc><lastmod>{today}</lastmod></url>\n" for u in urls)
+    (DIST / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "</urlset>\n")
+    (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {domain}/sitemap.xml\n")
 
 
 if __name__ == "__main__":
