@@ -353,7 +353,7 @@
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ ...data, access_key: INTAKE_KEY, subject, from_name: "analytitech.net intake form", replyto: data.email }),
+        body: JSON.stringify({ ...data, access_key: INTAKE_KEY, subject, from_name: "analytitech.com intake form", replyto: data.email }),
       });
       const out = await res.json().catch(() => ({}));
       if (!res.ok || out.success === false) throw new Error(out.message || res.status);
