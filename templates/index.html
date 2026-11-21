@@ -30,7 +30,7 @@
       <a class="hide" href="#work">Our work</a>
       <a class="hide" href="#products">Apps</a>
       <a class="hide" href="#engineering">Engineering</a>
-      <a class="btn btn-primary" href="#contact">Free consult</a>
+      <a class="btn btn-primary" href="#contact">Get started</a>
     </nav>
   </div>
 </header>
@@ -43,10 +43,10 @@
         <h1>Less paperwork. <em>More time for the work you love.</em></h1>
         <p class="lede">AnalytiTech builds apps, websites and automations for local businesses and organizations. Quotes, scheduling, invoices and check-ins that used to take an evening now take a tap.</p>
         <div class="btns">
-          <a class="btn btn-primary" href="#contact">Book a free 30-minute consult</a>
+          <a class="btn btn-primary" href="#contact">Tell us about your project</a>
           <a class="btn btn-ghost" href="#work">See what we've built</a>
         </div>
-        <div class="local"><i></i>Based in the Corning–Elmira area. We'll come to you.</div>
+        <div class="local"><i></i>Based in the Corning–Elmira area.</div>
       </div>
 
       <div class="calc" aria-labelledby="calc-title">
@@ -70,7 +70,7 @@
           <div><div class="num" id="hours">0</div><div class="cap">hours back per year</div></div>
           <div><div class="num spark" id="dollars">$0</div><div class="cap">of your time, per year</div></div>
         </div>
-        <p class="fine">An estimate that assumes software handles about 70% of the task. We'll work out real numbers with you in the consult.</p>
+        <p class="fine">An estimate that assumes software handles about 70% of the task. We'll work out real numbers together once we hear from you.</p>
       </div>
     </div>
   </section>
@@ -219,7 +219,7 @@
       <div class="eyebrow">How we work</div>
       <h2 style="margin-top:12px">From a conversation to a tool you use every day</h2>
       <div class="steps">
-        <div class="step"><h3>Talk</h3><p>A free 30-minute consult. Show us the task that eats your week, the paper forms, the spreadsheets.</p></div>
+        <div class="step"><h3>Tell us</h3><p>Fill out a short form about the task that eats your week: the paper forms, the spreadsheets. We reply by email.</p></div>
         <div class="step"><h3>Prototype</h3><p>We build a working first version you can tap through, so you can see it before you commit.</p></div>
         <div class="step"><h3>Launch</h3><p>We set it up on your phones and computers, bring in your existing data, and train your team.</p></div>
         <div class="step"><h3>Support</h3><p>A local person to call. We fix issues and add features as your business grows.</p></div>
@@ -230,17 +230,62 @@
   <section class="contact" id="contact">
     <div class="wrap">
       <div class="pitch">
-        <div class="eyebrow">Free consult</div>
+        <div class="eyebrow">Get started</div>
         <h2>Tell us what's eating your week</h2>
-        <p class="lede">No jargon and no obligation. We'll tell you honestly whether software can help, and roughly what it would take.</p>
+        <p class="lede">Fill out this short form and we'll reply by email, usually within a few days. No jargon and no obligation: we'll tell you honestly whether software can help, and roughly what it would take.</p>
+        <p style="color:var(--muted)">Rather just email? Write to us directly.</p>
         <div class="email"><span id="addr">hello@analytitech.net</span><button type="button" id="copy">Copy</button></div>
       </div>
-      <form class="ask" id="ask">
-        <label for="name">Your name<input id="name" autocomplete="name" placeholder="Jamie Smith"></label>
-        <label for="biz">Business or organization<input id="biz" placeholder="Smith Landscaping"></label>
-        <label for="what">What would you like to stop doing by hand?<textarea id="what" placeholder="We write every estimate in Word and email it, then retype it as an invoice…"></textarea></label>
-        <button class="btn btn-primary" type="submit">Write the email</button>
-        <p class="fine" style="color:var(--muted);font-size:0.85rem">Opens your email app with this filled in, addressed to hello@analytitech.net.</p>
+      <form class="ask" id="ask" novalidate>
+        <div class="pair">
+          <label for="name">Your name<input id="name" name="name" autocomplete="name" placeholder="Jamie Smith" required></label>
+          <label for="biz"><span>Business or organization <span class="opt">(optional)</span></span><input id="biz" name="business" autocomplete="organization" placeholder="Smith Landscaping"></label>
+        </div>
+        <div class="pair">
+          <label for="mail">Email<input id="mail" name="email" type="email" autocomplete="email" placeholder="jamie@example.com" required></label>
+          <label for="phone"><span>Phone <span class="opt">(optional)</span></span><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="607-555-0123"></label>
+        </div>
+        <label for="kind">What do you need help with?
+          <select id="kind" name="help_with">
+            <option>Not sure yet</option>
+            <option>An app for my business</option>
+            <option>A website</option>
+            <option>Automating paperwork or spreadsheets</option>
+            <option>A kiosk, cameras or connected devices</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label for="what">What would you like to stop doing by hand?<textarea id="what" name="details" placeholder="We write every estimate in Word and email it, then retype it as an invoice…" required></textarea></label>
+        <div class="pair">
+          <label for="hours"><span>Time it takes each week <span class="opt">(rough guess)</span></span>
+            <select id="hours" name="hours_per_week">
+              <option>Not sure</option>
+              <option>Under 2 hours</option>
+              <option>2 to 5 hours</option>
+              <option>5 to 10 hours</option>
+              <option>More than 10 hours</option>
+            </select>
+          </label>
+          <label for="when">When would you like it?
+            <select id="when" name="timeline">
+              <option>Just exploring</option>
+              <option>In the next 1 to 3 months</option>
+              <option>As soon as possible</option>
+            </select>
+          </label>
+        </div>
+        <fieldset>
+          <legend>Best way to reach you</legend>
+          <div class="chips">
+            <label><input type="radio" name="reach_by" value="Email" checked>Email</label>
+            <label><input type="radio" name="reach_by" value="Text">Text</label>
+            <label><input type="radio" name="reach_by" value="Phone call">Phone call</label>
+          </div>
+        </fieldset>
+        <label class="hp" aria-hidden="true">Leave this empty<input name="botcheck" tabindex="-1" autocomplete="off"></label>
+        <button class="btn btn-primary" type="submit" id="send">Send</button>
+        <p class="form-status" id="status" role="status" aria-live="polite"></p>
+        <p class="fine" style="color:var(--muted);font-size:0.85rem">We only use your answers to reply to you. <a href="/contact-privacy/">Privacy</a></p>
       </form>
     </div>
   </section>
@@ -280,12 +325,44 @@
     try { await navigator.clipboard.writeText($("addr").textContent); $("copy").textContent = "Copied"; }
     catch { const r = document.createRange(); r.selectNodeContents($("addr")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
   });
-  $("ask").addEventListener("submit", (e) => {
+  // Intake form. With a Web3Forms access key the answers are emailed to us
+  // from the page; without one, the visitor's email app opens instead.
+  const INTAKE_KEY = "b6331161-b5b3-4353-8221-93e57753e9ed";
+  const form = $("ask"), status = $("status"), send = $("send");
+  const say = (msg, err) => { status.textContent = msg; status.className = "form-status" + (err ? " err" : ""); };
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const biz = $("biz").value.trim();
-    const subject = "Free consult" + (biz ? " for " + biz : "");
-    const text = [$("what").value.trim(), "", $("name").value.trim(), biz].filter((l, i) => i < 2 || l).join("\n");
-    location.href = "mailto:hello@analytitech.net?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
+    for (const id of ["name", "mail", "what"]) {
+      const el = $(id);
+      if (!el.value.trim() || !el.checkValidity()) {
+        say(id === "mail" ? "Please add an email address we can reply to." : "Please fill in your name and what you'd like help with.", true);
+        el.focus(); return;
+      }
+    }
+    const data = Object.fromEntries(new FormData(form));
+    if (data.botcheck) return;
+    const biz = data.business.trim();
+    const subject = "New intake form" + (biz ? ": " + biz : ": " + data.name.trim());
+    if (!INTAKE_KEY) {
+      const lines = [data.details.trim(), "", "Help with: " + data.help_with, "Time each week: " + data.hours_per_week,
+        "Timeline: " + data.timeline, "Reach me by: " + data.reach_by, "", data.name.trim(), biz, data.phone.trim()];
+      location.href = "mailto:hello@analytitech.net?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.filter((l, i) => i < 7 || l).join("\n"));
+      return;
+    }
+    send.disabled = true; say("Sending…");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...data, access_key: INTAKE_KEY, subject, from_name: "analytitech.net intake form", replyto: data.email }),
+      });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || out.success === false) throw new Error(out.message || res.status);
+      form.outerHTML = '<div class="thanks" role="status"><h3>Thanks, ' + data.name.trim().split(" ")[0].replace(/[<>&"]/g, "") +
+        '!</h3><p>We got your note and will reply to ' + data.email.replace(/[<>&"]/g, "") + ', usually within a few days.</p></div>';
+    } catch (err) {
+      send.disabled = false;
+      say("That didn't go through. Please try again, or email hello@analytitech.net.", true);
+    }
   });
 })();
 </script>
