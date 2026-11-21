@@ -28,6 +28,9 @@ def main():
     if DIST.exists():
         shutil.rmtree(DIST)
     shutil.copytree(ROOT / "assets", DIST / "assets")
+    # static/ files go to the site root untouched (e.g. Google's verification file).
+    if (ROOT / "static").exists():
+        shutil.copytree(ROOT / "static", DIST, dirs_exist_ok=True)
     pages = sorted((ROOT / "templates").rglob("*.html"))
     for page in pages:
         out = render(page.read_text(), values, partials)
