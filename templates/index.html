@@ -3,343 +3,183 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AnalytiTech · Custom software for small businesses</title>
-<meta name="description" content="AnalytiTech builds apps, websites and automations for small businesses in the Corning–Elmira area, plus AI, IoT and vision engineering. Builders of BNB Tents, the CPPLL Field Scheduler, Body Blitz and FormForward.">
+<title>AnalytiTech · Websites, apps and automation for local businesses</title>
+<meta name="description" content="AnalytiTech is a local app studio in Corning, NY. We design, build and launch websites, custom apps and automations for small businesses. Builders of BNB Tents, the CPPLL Field Scheduler, Body Blitz and FormForward.">
 <link rel="icon" href="/assets/img/logo.png">
-<meta name="theme-color" content="#0B1F24">
-<meta property="og:title" content="AnalytiTech · Custom software for small businesses">
-<meta property="og:description" content="Apps, websites and automations that take the busywork off your plate.">
+<meta name="theme-color" content="#06090A">
+<meta property="og:title" content="AnalytiTech · Spend your time on customers, not paperwork">
+<meta property="og:description" content="A local app studio for small businesses: websites, custom apps and automations, designed, built and launched in weeks.">
 <meta property="og:image" content="{{domain}}/assets/img/logo.png">
+<meta property="og:url" content="{{domain}}/">
+<meta property="og:type" content="website">
 <link rel="canonical" href="{{domain}}/">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"AnalytiTech, LLC","url":"{{domain}}/",
-"logo":"{{domain}}/assets/img/logo.png","email":"{{supportEmail}}",
+"logo":"{{domain}}/assets/img/logo.png","email":"{{partnersEmail}}",
+"address":{"@type":"PostalAddress","addressLocality":"Corning","addressRegion":"NY","addressCountry":"US"},
 "sameAs":["https://x.com/AnalytiTech"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/business.css">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/home.css">
 </head>
 <body>
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="#top"><img src="/assets/img/logo.png" alt="AnalytiTech logo"><span>AnalytiTech</span></a>
-    <nav class="top">
-      <a class="hide" href="#services">What we build</a>
-      <a class="hide" href="#work">Our work</a>
-      <a class="hide" href="#engineering">Engineering</a>
-      <a class="btn btn-primary" href="#contact">Get started</a>
-    </nav>
+
+<div class="dark-zone">
+<header><div class="wrap">
+  <a class="brand" href="/"><img src="/assets/img/logo.png" alt="AnalytiTech logo">AnalytiTech</a>
+  <nav><a href="#services">Services</a><a href="#work">Work</a><a href="#packages">Packages</a><a class="btn light" href="#contact">Book a call</a></nav>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <span class="pill"><i></i>Your local app studio · Corning, NY</span>
+  <h1>Spend your time on customers, <span class="grad">not paperwork.</span></h1>
+  <p>We design, build and launch the websites, apps and automations that run your business, then stick around to keep them running.</p>
+  <div class="ctas"><a class="btn light" href="#contact">Book a free consultation</a><a class="btn outline" href="#work">See local results</a></div>
+  <div class="stage">
+    <div class="bar"><i></i><i></i><i></i></div>
+    <div class="screens"><img src="/assets/img/work/bnbtents-site.jpg" alt="The BNB Tents website we built"><div class="phone"><img src="/assets/img/shot-01_home.jpg" alt="The FormForward app we built"></div></div>
+    <div class="toast"><div class="ok">✓</div><div><b>New quote request</b>Wedding tent, June 14</div></div>
   </div>
-</header>
+</div></section>
 
-<main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <div class="pitch">
-        <div class="eyebrow">Custom software for small businesses</div>
-        <h1>Less paperwork. <em>More time for the work you love.</em></h1>
-        <p class="lede">AnalytiTech is your local tech team: we build the website, the app and the automations, and get them launched fast. Quotes, scheduling, invoices and check-ins that used to take an evening now take a tap.</p>
-        <div class="btns">
-          <a class="btn btn-primary" href="#contact">Tell us about your project</a>
-          <a class="btn btn-ghost" href="#work">See our work</a>
-        </div>
-        <div class="local"><i></i>Based in the Corning–Elmira area.</div>
-      </div>
-
-      <div class="calc" aria-labelledby="calc-title">
-        <h3 id="calc-title">How many hours could you get back?</h3>
-        <div class="row">
-          <label for="task">A task you do by hand</label>
-          <select id="task">
-            <option value="15|25">Writing quotes and estimates</option>
-            <option value="12|20">Sending invoices and chasing payments</option>
-            <option value="25|6">Scheduling and reminder calls</option>
-            <option value="5|60">Re-typing data between spreadsheets</option>
-            <option value="40|4">Checking people in at the front desk</option>
-          </select>
-        </div>
-        <div class="pair">
-          <div class="row"><label for="per">Times per week</label><input id="per" type="number" min="0" max="500" value="15"></div>
-          <div class="row"><label for="mins">Minutes each</label><input id="mins" type="number" min="0" max="600" value="25"></div>
-        </div>
-        <div class="row"><label for="rate">What an hour of your time is worth ($)</label><input id="rate" type="number" min="0" max="1000" value="50"></div>
-        <div class="out" aria-live="polite">
-          <div><div class="num" id="hours">0</div><div class="cap">hours back per year</div></div>
-          <div><div class="num spark" id="dollars">$0</div><div class="cap">of your time, per year</div></div>
-        </div>
-        <p class="fine">An estimate that assumes software handles about 70% of the task. We'll work out real numbers together once we hear from you.</p>
-      </div>
+<section class="services" id="services"><div class="wrap">
+  <div class="label">What we build</div>
+  <h2>Everything a small business needs to go digital.</h2>
+  <p class="lead">One local team for brand, website, apps and automation, so nothing falls between vendors.</p>
+  <div class="bento">
+    <div class="tile t-a">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/><path d="m15 15 3 3 4-5"/></svg></div>
+      <div><h3>Automation that runs your back office</h3><p>Quote requests become quotes, quotes become invoices, invoices get followed up. Automatically.</p></div>
+      <div class="flow"><span class="on">Website form</span><span>→</span><span class="on">Quote</span><span>→</span><span class="on">Invoice</span><span>→</span><span>Reminder</span><span>→</span><span>Paid</span></div>
     </div>
-  </section>
-
-  <section id="services">
-    <div class="wrap">
-      <div class="eyebrow">What we build</div>
-      <h2 style="margin-top:12px">Tools shaped around how you already work</h2>
-      <div class="grid3">
-        <div class="svc">
-          <svg viewBox="0 0 32 32"><path d="M8 4h12l6 6v18H8z"/><path d="M20 4v6h6M12 16h10M12 21h10M12 26h6"/></svg>
-          <h3>Quotes and invoices</h3>
-          <p>Build a quote on your phone at the job site, send a branded PDF, and turn it into an invoice when the work is done.</p>
-          <span class="ex">Built for: BNB Tents</span>
-        </div>
-        <div class="svc">
-          <svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="20" rx="3"/><path d="M5 13h22M11 4v6M21 4v6M10 18h4M18 18h4M10 22h4"/></svg>
-          <h3>Scheduling and booking</h3>
-          <p>Let people request a time, catch double-bookings before they happen, and approve with one tap.</p>
-          <span class="ex">Built for: CPPLL</span>
-        </div>
-        <div class="svc">
-          <svg viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="17" rx="2"/><path d="M4 11h24M11 27h10M16 23v4"/></svg>
-          <h3>Websites that bring in work</h3>
-          <p>Fast, simple sites with quote forms, booking links and photos of your best jobs, so customers can reach you at 10 pm.</p>
-          <span class="ex">Built: bnbtents.com</span>
-        </div>
-        <div class="svc">
-          <svg viewBox="0 0 32 32"><rect x="9" y="3" width="14" height="26" rx="3"/><path d="M13 9h6v6h-6zM13 20h2M17 20h2M13 24h6"/></svg>
-          <h3>Kiosks and check-in</h3>
-          <p>Self-serve screens with QR codes, lockers and payments for front desks, rentals and events.</p>
-          <span class="ex">Built: a smart locker kiosk</span>
-        </div>
-        <div class="svc">
-          <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="4"/><path d="M16 4v4M16 24v4M4 16h4M24 16h4M7.5 7.5l2.8 2.8M21.7 21.7l2.8 2.8M7.5 24.5l2.8-2.8M21.7 10.3l2.8-2.8"/></svg>
-          <h3>Cameras and connected devices</h3>
-          <p>Put sensors, cameras and on-device AI to work: counting, tracking and alerts without a person watching a screen.</p>
-          <span class="ex">Built: AI motion tracking (FormForward)</span>
-        </div>
-        <div class="svc">
-          <svg viewBox="0 0 32 32"><path d="M6 8c0-2 4.5-3.5 10-3.5S26 6 26 8s-4.5 3.5-10 3.5S6 10 6 8z"/><path d="M6 8v8c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5V8M6 16v8c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5v-8"/></svg>
-          <h3>Data and automation</h3>
-          <p>Move spreadsheets into one place, clean up the mess, and get the report you need without building it every Friday.</p>
-          <span class="ex">Built: league schedule builder and data tools</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="work" id="work">
-    <div class="wrap">
-      <div class="eyebrow">Our work</div>
-      <h2 style="margin-top:12px">Brands we've launched, start to finish</h2>
-      <p class="lede" style="margin-top:14px">Name and logo, website, app, store listing, launch day. Each one below is a real business or product running today, and each lives under its own name.</p>
-
-      <a class="feature" href="https://bnbtents.com" rel="noopener">
-        <div class="shot"><img src="/assets/img/work/bnbtents-site.jpg" alt="The BNB Tents website: tents, tables and lighting for every celebration" loading="lazy"></div>
-        <div class="txt">
-          <div class="who">Local success story · Horseheads, NY</div>
-          <h3>BNB Tents</h3>
-          <p>A family event-rental company went from word of mouth and Word documents to a full online presence: a website that brings in quote requests around the clock, a phone app that builds quotes and invoices in their own templates, and business email on their own domain.</p>
-          <ul class="did"><li>Website</li><li>Quote request form</li><li>Quote and invoice app</li><li>Business email</li></ul>
-          <span class="go">Visit bnbtents.com ↗</span>
-        </div>
-      </a>
-
-      <div class="portfolio">
-        <a class="pcard" href="/cppll/">
-          <div class="pshot dark"><img src="/assets/img/cppll-logo.png" alt="" class="badge" loading="lazy"></div>
-          <div class="who">Youth league · Corning–Painted Post</div>
-          <h3>CPPLL Field Scheduler</h3>
-          <p>Eight fields, two complexes, one shared calendar. Coaches request, directors approve, families see it all.</p>
-          <ul class="did"><li>iPhone and Android app</li><li>Website</li><li>Store release</li></ul>
-        </a>
-        <a class="pcard" href="/bodyblitz/">
-          <div class="pshot"><img src="/assets/img/bodyblitz-banner.jpg" alt="Body Blitz: your body is the controller" loading="lazy"></div>
-          <div class="who">Consumer game · App Store and Google Play</div>
-          <h3>Body Blitz</h3>
-          <p>Family game night on the TV, no controllers. The phone's camera turns your body into the controller.</p>
-          <ul class="did"><li>Brand</li><li>iPhone and Android game</li><li>Website</li><li>Social and ads</li><li>App Store and Google Play launch</li></ul>
-        </a>
-        <a class="pcard" href="/formforward/">
-          <div class="pshot dark"><img src="/assets/img/mark.png" alt="" class="badge" loading="lazy"></div>
-          <div class="who">AI fitness app</div>
-          <h3>FormForward</h3>
-          <p>An AI motion coach in your pocket: form tracking, rep counting and swing analysis from the phone's camera.</p>
-          <ul class="did"><li>Brand</li><li>On-device AI</li><li>iPhone and Android app</li><li>Website</li></ul>
-        </a>
-        <a class="pcard" href="/golfswingai/">
-          <div class="pshot light"><img src="/assets/img/golf-swing-ai-camera.png" alt="Golf Swing AI camera on a tripod" loading="lazy"></div>
-          <div class="who">Hardware and AI · In development</div>
-          <h3>Golf Swing AI</h3>
-          <p>A swing coach on a tripod: an AI camera that reads your mechanics and gives instant feedback.</p>
-          <ul class="did"><li>Product design</li><li>Vision AI</li><li>Website</li></ul>
-        </a>
-      </div>
-
-      <div class="also">
-        <b>Also built:</b> a smart locker kiosk prototype where customers pick a locker, scan a QR code and pay with no staff at the desk.
-      </div>
-    </div>
-  </section>
-
-  <section class="eng" id="engineering">
-    <div class="wrap">
-      <div class="intro">
-        <div class="eyebrow">Engineering services</div>
-        <h2>AI at the edge, with IoT and vision</h2>
-        <p class="lede">For manufacturers and larger teams, the same engineers take on bigger systems: cameras on the line, sensors in the field, and data that finally flows to the people who need it.</p>
-        <div class="own">
-          <b>You own what we build</b>
-          <p>We're not gatekeepers of your data. You keep the code and the infrastructure, and we train your team to run and extend it.</p>
-        </div>
-      </div>
-      <ul>
-        <li><b>Camera inspection and defect detection</b><span>Machine vision and image classification that spots defects consistently, shift after shift.</span></li>
-        <li><b>Edge AI and IoT</b><span>Models that run on the device itself: fast, private, and working even when the network isn't.</span></li>
-        <li><b>Integration and workflow automation</b><span>Connect new tools to the systems you already run, without starting over.</span></li>
-        <li><b>Cloud migration and management</b><span>Move off aging servers and keep costs predictable.</span></li>
-        <li><b>Data analytics and business intelligence</b><span>Dashboards and reports built on data you can trust.</span></li>
-        <li><b>Consulting and training</b><span>Technology strategy, choosing the right tools, and hands-on training for your people.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="how">
-    <div class="wrap">
-      <div class="eyebrow">How we work</div>
-      <h2 style="margin-top:12px">From a conversation to a tool you use every day</h2>
-      <div class="steps">
-        <div class="step"><h3>Tell us</h3><p>Fill out a short form about the task that eats your week: the paper forms, the spreadsheets. We reply by email.</p></div>
-        <div class="step"><h3>Prototype</h3><p>We build a working first version you can tap through, so you can see it before you commit.</p></div>
-        <div class="step"><h3>Launch</h3><p>We set it up on your phones and computers, bring in your existing data, and train your team.</p></div>
-        <div class="step"><h3>Support</h3><p>A local person to call. We fix issues and add features as your business grows.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <div class="pitch">
-        <div class="eyebrow">Get started</div>
-        <h2>Tell us what's eating your week</h2>
-        <p class="lede">Fill out this short form and we'll reply by email, usually within a few days. No jargon and no obligation: we'll tell you honestly whether software can help, and roughly what it would take.</p>
-        <p style="color:var(--muted)">Rather just email? Write to us directly.</p>
-        <div class="email"><span id="addr">hello@analytitech.net</span><button type="button" id="copy">Copy</button></div>
-      </div>
-      <form class="ask" id="ask" novalidate>
-        <div class="pair">
-          <label for="name">Your name<input id="name" name="name" autocomplete="name" placeholder="Jamie Smith" required></label>
-          <label for="biz"><span>Business or organization <span class="opt">(optional)</span></span><input id="biz" name="business" autocomplete="organization" placeholder="Smith Landscaping"></label>
-        </div>
-        <div class="pair">
-          <label for="mail">Email<input id="mail" name="email" type="email" autocomplete="email" placeholder="jamie@example.com" required></label>
-          <label for="phone"><span>Phone <span class="opt">(optional)</span></span><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="607-555-0123"></label>
-        </div>
-        <label for="kind">What do you need help with?
-          <select id="kind" name="help_with">
-            <option>Not sure yet</option>
-            <option>An app for my business</option>
-            <option>A website</option>
-            <option>Automating paperwork or spreadsheets</option>
-            <option>A kiosk, cameras or connected devices</option>
-            <option>Something else</option>
-          </select>
-        </label>
-        <label for="what">What would you like to stop doing by hand?<textarea id="what" name="details" placeholder="We write every estimate in Word and email it, then retype it as an invoice…" required></textarea></label>
-        <div class="pair">
-          <label for="hours"><span>Time it takes each week <span class="opt">(rough guess)</span></span>
-            <select id="hours" name="hours_per_week">
-              <option>Not sure</option>
-              <option>Under 2 hours</option>
-              <option>2 to 5 hours</option>
-              <option>5 to 10 hours</option>
-              <option>More than 10 hours</option>
-            </select>
-          </label>
-          <label for="when">When would you like it?
-            <select id="when" name="timeline">
-              <option>Just exploring</option>
-              <option>In the next 1 to 3 months</option>
-              <option>As soon as possible</option>
-            </select>
-          </label>
-        </div>
-        <fieldset>
-          <legend>Best way to reach you</legend>
-          <div class="chips">
-            <label><input type="radio" name="reach_by" value="Email" checked>Email</label>
-            <label><input type="radio" name="reach_by" value="Text">Text</label>
-            <label><input type="radio" name="reach_by" value="Phone call">Phone call</label>
-          </div>
-        </fieldset>
-        <label class="hp" aria-hidden="true">Leave this empty<input name="botcheck" tabindex="-1" autocomplete="off"></label>
-        <button class="btn btn-primary" type="submit" id="send">Send</button>
-        <p class="form-status" id="status" role="status" aria-live="polite"></p>
-        <p class="fine" style="color:var(--muted);font-size:0.85rem">We only use your answers to reply to you. <a href="/contact-privacy/">Privacy</a></p>
-      </form>
-    </div>
-  </section>
+    <div class="tile t-b"><div class="ico"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div><div><h3>Custom apps</h3><p>iPhone, Android and web, built around how your team already works.</p></div></div>
+    <div class="tile t-c"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></div><div><h3>Websites that bring in work</h3><p>Fast, found on Google, built to turn visitors into calls and bookings.</p></div></div>
+    <div class="tile t-d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><div><h3>Booking and scheduling</h3><p>Customers request a time, you approve with one tap.</p></div></div>
+    <div class="tile t-e"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div><div><h3>AI that does the busywork</h3><p>Smart tools that count, check and sort, so you don't have to.</p></div></div>
+  </div>
+</div></section>
 </main>
+</div>
 
-<footer>
-  <div class="wrap">
-    <div>© {{year}} AnalytiTech, LLC · Corning–Elmira, New York</div>
-    <nav>
-      <a href="#work">Our work</a>
-      <a href="#contact">Contact</a>
-      <a href="/privacy/">Privacy</a>
-    </nav>
+<section class="s"><div class="wrap">
+  <div class="label">How we help</div>
+  <h2>If it eats your evenings, we can probably fix it.</h2>
+  <div class="probs">
+    <div class="prob"><div class="before">Retyping quotes into invoices</div><h3>Quotes and invoices in two taps</h3><p>Branded PDFs from your phone at the job site, turned into invoices when the work is done.</p></div>
+    <div class="prob"><div class="before">Phone tag for every booking</div><h3>Scheduling that runs itself</h3><p>Requests, approvals and reminders in one place everyone can see.</p></div>
+    <div class="prob"><div class="before">A website from 2012</div><h3>A website that brings in work</h3><p>Customers find you on Google and request a quote at 10 pm.</p></div>
   </div>
-</footer>
+</div></section>
+
+<section class="s story" id="work"><div class="wrap">
+  <a class="shot" href="https://bnbtents.com" rel="noopener"><img src="/assets/img/work/bnbtents-site.jpg" alt="The BNB Tents website: tents, tables and lighting for every celebration" loading="lazy"></a>
+  <div>
+    <div class="label">Local success story</div>
+    <h2>BNB Tents, Horseheads</h2>
+    <p class="sub">An event-rental business that needed to look as professional online as it does on site.</p>
+    <ul>
+      <li><span><b>A new website</b> that captures quote requests day and night</span></li>
+      <li><span><b>A quote and invoice app</b> that matches their own templates</span></li>
+      <li><span><b>Business email</b> on their own domain</span></li>
+    </ul>
+    <a class="visit" href="https://bnbtents.com" rel="noopener">Visit bnbtents.com ↗</a>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap">
+  <div class="label">More of our work</div>
+  <h2>From Little League to the App Store.</h2>
+  <div class="more">
+    <a class="mw" href="/cppll/"><div class="m c"><img src="/assets/img/cppll-logo.png" alt="" loading="lazy"></div><div class="t"><h3>CPPLL Field Scheduler</h3><p>One field calendar for a whole league. iPhone, Android and web.</p></div></a>
+    <a class="mw" href="/bodyblitz/"><div class="m"><img src="/assets/img/bodyblitz/og-family-tv-v2.jpg" alt="" loading="lazy"></div><div class="t"><h3>Body Blitz</h3><p>A family game, branded and launched on the App Store.</p></div></a>
+    <a class="mw" href="/formforward/"><div class="m p"><img src="/assets/img/shot-01_home.jpg" alt="" loading="lazy"></div><div class="t"><h3>FormForward</h3><p>AI coaching from the phone's camera.</p></div></a>
+  </div>
+</div></section>
+
+<section class="s" id="packages" style="background:var(--sand)"><div class="wrap">
+  <div class="label">Packages</div>
+  <h2>Start small. Grow when you're ready.</h2>
+  <div class="pk">
+    <div class="pack"><div class="nm">Launch</div><h3>Get online</h3><p>A professional presence, done right.</p><ul><li>Website with quote or booking form</li><li>Google Business profile</li><li>Business email on your domain</li></ul><div class="price">Quoted after a free call</div></div>
+    <div class="pack hot"><div class="nm">Grow · recommended</div><h3>Get organized</h3><p>Everything in Launch, plus the tools that save hours.</p><ul><li>Custom quote, invoice or scheduling app</li><li>Automated follow-ups</li><li>Training for your team</li></ul><div class="price">Quoted after a free call</div></div>
+    <div class="pack"><div class="nm">Partner</div><h3>Get ahead</h3><p>An ongoing tech partner for growing teams.</p><ul><li>Monthly improvements</li><li>AI and data projects</li><li>Priority local support</li></ul><div class="price">Monthly plan</div></div>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap">
+  <div class="label">How it works</div>
+  <h2>Idea to launch in weeks, not months.</h2>
+  <div class="steps">
+    <div class="step"><div class="wk">Week 1</div><h3>Talk</h3><p>A free call about your business and what eats your week.</p></div>
+    <div class="step"><div class="wk">Week 2</div><h3>Prototype</h3><p>A working first version you can tap through.</p></div>
+    <div class="step"><div class="wk">Weeks 3–6</div><h3>Build</h3><p>Design, build and test, with weekly check-ins.</p></div>
+    <div class="step"><div class="wk">Launch</div><h3>Go live</h3><p>We launch, train your team and stay on call.</p></div>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap"><div class="box">
+  <div class="l">
+    <div class="label">Free consultation</div>
+    <h2>Let's talk about your business.</h2>
+    <form id="ask" novalidate>
+      <input id="name" name="name" autocomplete="name" placeholder="Your name" aria-label="Your name" required>
+      <input id="reach" name="contact" autocomplete="email" placeholder="Email or phone" aria-label="Email or phone" required>
+      <select id="kind" name="help_with" aria-label="What do you need?">
+        <option>What do you need?</option><option>A website</option><option>An app</option><option>Automation</option><option>Not sure yet</option>
+      </select>
+      <textarea id="what" name="details" placeholder="Anything else we should know? (optional)" aria-label="Details"></textarea>
+      <label class="hp" aria-hidden="true">Leave this empty<input name="botcheck" tabindex="-1" autocomplete="off"></label>
+      <button class="btn dark" type="submit" id="send">Request a call</button>
+      <p class="form-status" id="status" role="status" aria-live="polite"></p>
+      <p class="fine">We only use your answers to reply to you. <a href="/contact-privacy/">Privacy</a></p>
+    </form>
+  </div>
+  <div class="r">
+    <h3>Prefer to just talk?</h3>
+    <p>Real people, right here in the Southern Tier.</p>
+    <div class="row"><i>✉</i><a href="mailto:{{partnersEmail}}">{{partnersEmail}}</a></div>
+    <div class="row"><i>⌖</i>Corning, New York</div>
+  </div>
+</div></div></section>
+
+<footer><div class="wrap">
+  <span>© {{year}} AnalytiTech, LLC · Corning, NY</span>
+  <nav><a href="#work">Our work</a><a href="#contact">Contact</a><a href="/privacy/">Privacy</a></nav>
+</div></footer>
 
 <script>
 (() => {
-  const $ = (id) => document.getElementById(id);
-  const task = $("task"), per = $("per"), mins = $("mins"), rate = $("rate");
-  const fmt = new Intl.NumberFormat("en-US");
-  function update() {
-    const hours = Math.max(0, +per.value || 0) * Math.max(0, +mins.value || 0) * 52 * 0.7 / 60;
-    $("hours").textContent = fmt.format(Math.round(hours));
-    $("dollars").textContent = "$" + fmt.format(Math.round(hours * Math.max(0, +rate.value || 0)));
-  }
-  task.addEventListener("change", () => {
-    const [p, m] = task.value.split("|");
-    per.value = p; mins.value = m; update();
-  });
-  [per, mins, rate].forEach((el) => el.addEventListener("input", update));
-  update();
-  $("copy").addEventListener("click", async () => {
-    try { await navigator.clipboard.writeText($("addr").textContent); $("copy").textContent = "Copied"; }
-    catch { const r = document.createRange(); r.selectNodeContents($("addr")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
-  });
-  // Intake form. With a Web3Forms access key the answers are emailed to us
-  // from the page; without one, the visitor's email app opens instead.
+  // Short intake form. Answers are emailed to us through Web3Forms.
   const INTAKE_KEY = "b6331161-b5b3-4353-8221-93e57753e9ed";
+  const $ = (id) => document.getElementById(id);
   const form = $("ask"), status = $("status"), send = $("send");
   const say = (msg, err) => { status.textContent = msg; status.className = "form-status" + (err ? " err" : ""); };
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    for (const id of ["name", "mail", "what"]) {
-      const el = $(id);
-      if (!el.value.trim() || !el.checkValidity()) {
-        say(id === "mail" ? "Please add an email address we can reply to." : "Please fill in your name and what you'd like help with.", true);
-        el.focus(); return;
-      }
-    }
+    if (!$("name").value.trim()) { say("Please add your name.", true); $("name").focus(); return; }
+    if (!$("reach").value.trim()) { say("Please add an email or phone number so we can reach you.", true); $("reach").focus(); return; }
     const data = Object.fromEntries(new FormData(form));
     if (data.botcheck) return;
-    const biz = data.business.trim();
-    const subject = "New intake form" + (biz ? ": " + biz : ": " + data.name.trim());
-    if (!INTAKE_KEY) {
-      const lines = [data.details.trim(), "", "Help with: " + data.help_with, "Time each week: " + data.hours_per_week,
-        "Timeline: " + data.timeline, "Reach me by: " + data.reach_by, "", data.name.trim(), biz, data.phone.trim()];
-      location.href = "mailto:hello@analytitech.net?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.filter((l, i) => i < 7 || l).join("\n"));
-      return;
-    }
+    const reach = data.contact.trim();
+    const isEmail = /@/.test(reach);
     send.disabled = true; say("Sending…");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ ...data, access_key: INTAKE_KEY, subject, from_name: "analytitech.com intake form", replyto: data.email }),
+        body: JSON.stringify({ ...data, access_key: INTAKE_KEY, subject: "New consultation request: " + data.name.trim(),
+          from_name: "analytitech.com", ...(isEmail ? { replyto: reach } : {}) }),
       });
       const out = await res.json().catch(() => ({}));
       if (!res.ok || out.success === false) throw new Error(out.message || res.status);
-      form.outerHTML = '<div class="thanks" role="status"><h3>Thanks, ' + data.name.trim().split(" ")[0].replace(/[<>&"]/g, "") +
-        '!</h3><p>We got your note and will reply to ' + data.email.replace(/[<>&"]/g, "") + ', usually within a few days.</p></div>';
+      const esc = (t) => t.replace(/[<>&"]/g, "");
+      form.outerHTML = '<div class="thanks" role="status"><h3>Thanks, ' + esc(data.name.trim().split(" ")[0]) +
+        '!</h3><p>We got your request and will reach out at ' + esc(reach) + ', usually within a couple of days.</p></div>';
     } catch (err) {
       send.disabled = false;
-      say("That didn't go through. Please try again, or email hello@analytitech.net.", true);
+      say("That didn't go through. Please try again, or email {{partnersEmail}}.", true);
     }
   });
 })();
