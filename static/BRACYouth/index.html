@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Private prototype. Sample data only.">
+<title>BRAC Worship · Demo</title>
+<style>
+html{-webkit-text-size-adjust:100%}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font-size:14px}
+[hidden]{display:none!important}
+img{max-width:100%}
+.demo-ribbon{position:fixed;left:0;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;background:var(--gold);color:#1C1C1C;font:700 11px/1 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:12px 6px;border-radius:0 8px 8px 0;z-index:5;display:none}
+@media (min-width:600px){.demo-ribbon{display:block}body{background:linear-gradient(var(--bg),var(--bg))}}
+</style>
+<meta name="theme-color" content="#24466B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one phone-width app column; sticky brand header, scrolling screen, fixed bottom tab bar. Brand cues from beartownroad.org (navy, teal, gold, near-black, pill buttons, bold wide grotesk headings). */
+:root{
+  --navy:#24466B; --teal:#1995A4; --gold:#F1C84B; --ink:#1C1C1C;
+  --bg:#F4F6F8; --surface:#FFFFFF; --fg:#1C1C1C; --muted:#5C6672; --line:#E2E6EB;
+  --chip:#E8F4F6; --chip-fg:#11707C; --head:#24466B; --head-fg:#FFFFFF;
+  --warn-bg:#FFF5D6; --warn-fg:#6B5200; --ok-bg:#E4F5EA; --ok-fg:#1F6B3A; --alert-bg:#FDECEC; --alert-fg:#8A1F1F;
+  --display:"Archivo","Arial Black",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1720; --surface:#18232F; --fg:#EEF2F6; --muted:#9AA7B4; --line:#2A3846;
+  --chip:#133841; --chip-fg:#7FD3DD; --head:#16304C; --head-fg:#FFFFFF;
+  --warn-bg:#3A3110; --warn-fg:#F6DA86; --ok-bg:#163423; --ok-fg:#8FDBA9; --alert-bg:#3B1A1A; --alert-fg:#F3A6A6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1720; --surface:#18232F; --fg:#EEF2F6; --muted:#9AA7B4; --line:#2A3846;
+  --chip:#133841; --chip-fg:#7FD3DD; --head:#16304C; --head-fg:#FFFFFF;
+  --warn-bg:#3A3110; --warn-fg:#F6DA86; --ok-bg:#163423; --ok-fg:#8FDBA9; --alert-bg:#3B1A1A; --alert-fg:#F3A6A6; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--head)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.app{max-width:440px;margin:0 auto;min-height:100%;background:var(--bg);position:relative;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+@media (min-width:480px){.app{box-shadow:0 0 0 1px var(--line)}}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--head);color:var(--head-fg);
+  padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:10px}
+.brandrow{display:flex;align-items:center;gap:10px}
+.mark{width:34px;height:34px;flex:none}
+.wordmark{font-family:var(--display);font-weight:800;font-stretch:112%;letter-spacing:.02em;font-size:15px;line-height:1.05;text-transform:uppercase}
+.wordmark small{display:block;font-family:var(--body);font-weight:500;letter-spacing:.14em;font-size:10px;opacity:.8}
+.brandrow .sp{flex:1}
+.iconbtn{background:rgba(255,255,255,.12);border:0;color:inherit;width:36px;height:36px;border-radius:50%;display:grid;place-items:center}
+.roles{display:flex;background:rgba(0,0,0,.22);border-radius:999px;padding:3px;gap:2px}
+.roles button{flex:1;border:0;background:transparent;color:rgba(255,255,255,.82);padding:7px 4px;border-radius:999px;font-weight:600;font-size:13px}
+.roles button[aria-pressed="true"]{background:var(--gold);color:#1C1C1C}
+.demo-tag{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;text-align:center;color:rgba(255,255,255,.75)}
+main{padding-block:18px 8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--display);font-stretch:112%;margin:0;text-wrap:balance}
+h1{font-size:26px;font-weight:800;line-height:1.1}
+h2{font-size:17px;font-weight:800;letter-spacing:.01em}
+h3{font-size:15px;font-weight:600}
+p{margin:0}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.eyebrow{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--teal)}
+.section{display:flex;flex-direction:column;gap:10px}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.link{background:none;border:0;color:var(--teal);font-weight:600;padding:0;font-size:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:8px}
+.hero{background:var(--navy);color:#fff;border:0;padding:18px;gap:10px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-75px;top:-85px;width:150px;height:150px;border-radius:50%;border:22px solid rgba(25,149,164,.45)}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{color:#fff;position:relative;z-index:1}
+.hero p{color:rgba(255,255,255,.88);position:relative;z-index:1}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13.5px}
+.meta span{display:inline-flex;align-items:center;gap:5px}
+.btn{border:0;border-radius:999px;padding:11px 18px;font-weight:700;font-size:14.5px;background:var(--ink);color:#FAFAFA;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn.gold{background:var(--gold);color:#1C1C1C}
+.btn.teal{background:var(--teal);color:#fff}
+.btn.ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1.5px var(--line)}
+.hero .btn.ghost{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.45)}
+:root:not([data-theme="light"]) .btn:not(.gold):not(.teal):not(.ghost){}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn:not(.gold):not(.teal):not(.ghost){background:#EEF2F6;color:#1C1C1C}}
+:root[data-theme="dark"] .btn:not(.gold):not(.teal):not(.ghost){background:#EEF2F6;color:#1C1C1C}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
+.btnrow .btn{flex:1;min-width:0}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--chip);color:var(--chip-fg);white-space:nowrap}
+.pill.warn{background:var(--warn-bg);color:var(--warn-fg)}
+.pill.ok{background:var(--ok-bg);color:var(--ok-fg)}
+.pill.alert{background:var(--alert-bg);color:var(--alert-fg)}
+.list{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.row{display:flex;gap:12px;align-items:center;padding:12px 14px;border:0;border-top:1px solid var(--line);background:transparent;text-align:left;width:100%}
+.row:first-child{border-top:0}
+.row .grow{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.date{width:46px;flex:none;text-align:center;border-radius:12px;background:var(--chip);color:var(--chip-fg);padding:6px 0;line-height:1}
+.date b{display:block;font-family:var(--display);font-stretch:112%;font-size:19px;font-weight:800;margin-top:2px;font-variant-numeric:tabular-nums}
+.date i{font-style:normal;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.ann{display:flex;gap:12px}
+.ann .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:7px;flex:none}
+.ann .grow{display:flex;flex-direction:column;gap:3px;min-width:0}
+.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:var(--chip);color:var(--chip-fg);flex:none;font-size:14px}
+.notice{border-radius:var(--r);padding:12px 14px;font-size:13.5px;display:flex;gap:10px;align-items:flex-start}
+.notice.warn{background:var(--warn-bg);color:var(--warn-fg)}
+.notice.alert{background:var(--alert-bg);color:var(--alert-fg)}
+.notice.info{background:var(--chip);color:var(--chip-fg)}
+.notice b{font-weight:700}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px}
+.seg button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.f{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:14px}
+input[type=text],textarea,select{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;font-weight:400;width:100%}
+textarea{min-height:84px;resize:vertical}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:2px}
+.stat b{font-family:var(--display);font-stretch:112%;font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--muted)}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+nav.tabs .in{max-width:440px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+nav.tabs button{border:0;background:none;padding:9px 0 10px;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;font-weight:600;color:var(--muted);position:relative}
+nav.tabs button[aria-current="page"]{color:var(--teal)}
+nav.tabs button[aria-current="page"]::before{content:"";position:absolute;top:0;left:30%;right:30%;height:3px;border-radius:0 0 3px 3px;background:var(--teal)}
+nav.tabs .badge{position:absolute;top:5px;left:calc(50% + 6px);background:#E0313F;color:#fff;font-size:10px;font-weight:700;border-radius:999px;min-width:16px;height:16px;padding:0 4px;display:grid;place-items:center}
+svg.i{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+svg.s{width:15px;height:15px}
+.sheet-bg{position:fixed;inset:0;background:rgba(10,20,30,.5);z-index:40;display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--bg);width:100%;max-width:440px;max-height:88%;overflow:auto;border-radius:22px 22px 0 0;
+  padding-block:10px calc(22px + env(safe-area-inset-bottom,0px));padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:14px;animation:up .22s ease-out}
+.grab{width:40px;height:5px;border-radius:3px;background:var(--line);align-self:center}
+@keyframes up{from{transform:translateY(30px);opacity:.6}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.sheet{animation:none}}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(92px + env(safe-area-inset-bottom,0px));background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-weight:600;font-size:14px;z-index:50;max-width:calc(100% - 32px);text-align:center}
+ul.plain{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.guess{font-size:11px;font-weight:700;color:var(--warn-fg);background:var(--warn-bg);border-radius:6px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap}
+.kid{display:flex;align-items:center;gap:12px}
+</style>
+<style>
+nav.tabs .in{grid-template-columns:repeat(var(--cols,4),1fr)}
+.bubble{max-width:78%;padding:8px 12px;border-radius:16px 16px 16px 4px;background:var(--line);display:flex;flex-direction:column;gap:2px;align-self:flex-start}
+.bubble.mine{align-self:flex-end;background:var(--teal);color:#fff;border-radius:16px 16px 4px 16px}
+.bubble .who{font-size:12px;font-weight:700;color:var(--chip-fg)}
+.bubble .t{font-size:10.5px;opacity:.7}
+.thread{position:fixed;inset:0;z-index:35;background:var(--bg);display:flex;flex-direction:column;max-width:440px;margin:0 auto}
+.thread header{background:var(--head);color:#fff;display:flex;align-items:center;gap:8px;padding-block:calc(10px + env(safe-area-inset-top,0px)) 10px;padding-left:max(10px,env(safe-area-inset-left,0px));padding-right:max(10px,env(safe-area-inset-right,0px))}
+.thread header .grow{flex:1;min-width:0}
+.thread header b{display:block;font-size:16px}
+.thread header span{font-size:12px;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.thread .msgs{flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:16px}
+.thread .rule{background:var(--chip);color:var(--chip-fg);font-size:12.5px;font-weight:600;padding:8px 16px;display:flex;gap:6px;align-items:center}
+.thread form{display:flex;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:var(--surface)}
+.thread form input{flex:1;border:0;background:transparent;padding:10px 6px;font-size:15px;min-width:0}
+.thread form input:focus{outline:none}
+.sendbtn{width:42px;height:42px;border-radius:50%;border:0;background:var(--teal);color:#fff;display:grid;place-items:center;flex:none}
+.fab{position:fixed;right:max(16px,calc(50% - 204px));bottom:calc(80px + env(safe-area-inset-bottom,0px));z-index:21;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.arch{background:none;border:0;color:var(--muted);padding:6px;border-radius:8px;display:grid;place-items:center}
+.unread{background:var(--teal);color:#fff;border-radius:999px;font-size:11.5px;font-weight:700;padding:1px 7px}
+.chipsel{display:flex;flex-wrap:wrap;gap:6px}
+.chipsel button{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 12px;font-weight:600;font-size:13.5px}
+.chipsel button[aria-pressed="true"]{background:var(--chip);border-color:var(--teal);color:var(--chip-fg)}
+.num{width:28px;text-align:center;color:var(--muted);font-weight:700;flex:none}
+.sync{display:flex;align-items:center;gap:6px;color:var(--chip-fg);font-size:13px;font-weight:600}
+.sync .grow{flex:1}
+</style>
+</head>
+<body>
+
+
+
+
+<div class="demo-ribbon" aria-hidden="true">Demo · sample data only</div>
+<div class="app" id="app">
+  <header class="top">
+    <div class="brandrow">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#1995A4" stroke-width="4"/><path d="M15 10v20M15 21.5a6 6 0 1 1 0 .01" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
+      <div class="wordmark">BRAC Worship<small>Beartown Road Alliance</small></div>
+      <div class="sp"></div>
+      <button class="iconbtn" id="aboutBtn" aria-label="About this demo"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg></button>
+    </div>
+    <div class="roles" role="group" aria-label="View the app as">
+      <button data-role="leader" aria-pressed="true">Leader</button>
+      <button data-role="adult" aria-pressed="false">Adult</button>
+      <button data-role="youth" aria-pressed="false">Youth</button>
+      <button data-role="parent" aria-pressed="false">Parent</button>
+    </div>
+    <div class="demo-tag">Demo · sample data only · not a live app</div>
+  </header>
+  <main id="screen"></main>
+</div>
+<nav class="tabs" aria-label="Main"><div class="in" id="tabs"></div></nav>
+<div id="fabwrap"></div>
+<div id="threadLayer"></div>
+<div id="layer"></div>
+
+<script>
+const IC = {
+  sched:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/>',
+  svc:'<path d="M4 6h11M4 11h11M4 16h7"/><circle cx="17" cy="17" r="2.5"/><path d="M19.5 17V7l2-1"/>',
+  song:'<rect x="5" y="3" width="16" height="16" rx="2"/><circle cx="12" cy="13" r="2"/><path d="M14 13V7l2-1M3 7v14h14"/>',
+  chat:'<path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8"/>',
+  approve:'<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h4M8 14h3M14 14l2 2 3-4"/>',
+  shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  note:'<path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>',
+  play:'<circle cx="12" cy="12" r="9"/><path d="M10 8l6 4-6 4z"/>',
+  lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  cloud:'<path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9a4.5 4.5 0 0 0 1 9z"/><path d="M9 13l2 2 4-4"/>',
+  sync:'<path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2"/><path d="M20 4v5h-5M4 20v-5h5"/>',
+  arch:'<rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11h14V8M10 12h4"/>',
+  chev:'<path d="M9 6l6 6-6 6"/>', back:'<path d="M15 6l-6 6 6 6"/>', plus:'<path d="M12 5v14M5 12h14"/>',
+  send:'<path d="M4 12l16-8-6 16-2-6z"/>', check:'<path d="M5 12l5 5 9-10"/>', family:'<circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2.5-5 5-5s5 2 5 5M13.5 20c.3-2.4 1.8-4 3.5-4s3.5 1.6 3.5 4"/>',
+  busy:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M10 13l4 4M14 13l-4 4"/>',
+  flag:'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>', x:'<path d="M6 6l12 12M18 6L6 18"/>', group:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5M15 15.5c2.6 0 5 1.6 5 4.5"/>'
+};
+const ic = (n, c='i') => `<svg class="${c}" viewBox="0 0 24 24" aria-hidden="true">${IC[n]}</svg>`;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- Mock Planning Center data (fictional people) ---------- */
+// 4 leaders, 4 approved adults, 4 youth, 1 parent (all fictional)
+const PEOPLE = {
+  bryson:{n:'Bryson', r:'Youth Director', adult:true, leader:true}, sarah:{n:'Sarah Lin', r:'Worship Leader · Vocals', adult:true, leader:true},
+  mike:{n:'Mike Torres', r:'Band Leader · Drums', adult:true, leader:true}, jen:{n:'Jen Park', r:'Youth Worship Leader · Keys', adult:true, leader:true},
+  rachel:{n:'Rachel Moore', r:'Vocals', adult:true}, dave:{n:'Dave Reese', r:'Sound', adult:true}, tom:{n:'Tom Becker', r:'Bass', adult:true}, lisa:{n:'Lisa Grant', r:'Lyrics & Slides', adult:true},
+  maya:{n:'Maya Thompson', r:'Vocals', youth:true, g:'Grade 10'}, caleb:{n:'Caleb Ward', r:'Acoustic Guitar', youth:true, g:'Grade 11'},
+  ella:{n:'Ella Shaw', r:'Keys', youth:true, g:'Grade 9'}, josh:{n:'Josh Kim', r:'Bass', youth:true, g:'Grade 12'},
+  dana:{n:'Dana Thompson', r:'Maya’s parent', parent:true}
+};
+const kind = id => PEOPLE[id].leader?'Leader':PEOPLE[id].youth?'Youth':PEOPLE[id].parent?'Parent':'Adult';
+const first = id => PEOPLE[id].n.split(' ')[0];
+const initials = id => PEOPLE[id].n.split(' ').map(x=>x[0]).join('').slice(0,2);
+const SONGS = {
+  bmlife:['Build My Life','Housefires','G',68,'Nov 18',14,'7070345'], gayl:['Great Are You Lord','All Sons & Daughters','G',70,'Nov 11',11,'6460220'],
+  living:['Living Hope','Phil Wickham','C',72,'Nov 15',9,'7106807'], waymaker:['Way Maker','Sinach','E',68,'Oct 28',12,'7115744'],
+  holy:['Holy Forever','Chris Tomlin','C',72,'Nov 22',6,'7203453'], goodness:['Goodness of God','Bethel Music','Ab',63,'Nov 8',16,'7117726'],
+  grace:['Amazing Grace (My Chains Are Gone)','Chris Tomlin','G',66,'Oct 25',10,'4768151'], doxology:['Doxology','Traditional','G',80,'Nov 22',21,'Public domain']
+};
+const PLANS = {
+  yw1202:{type:'Youth Worship',dow:'Wed',mon:'Dec',day:'2',date:'Wed, Dec 2',time:'6:45 PM set',reh:'Rehearsal 5:30 PM',series:'Advent: Hope',youth:true,
+    items:[['Band check & prayer','10 min'],['Build My Life','5 min','bmlife','G'],['Great Are You Lord','5 min','gayl','G'],['Message','20 min'],['Way Maker','6 min','waymaker','D']],
+    team:{bryson:'Worship Leader',maya:'Vocals',caleb:'Acoustic Guitar',ella:'Keys',josh:'Bass',mike:'Drums',lisa:'Lyrics'}},
+  sun1206:{type:'Sunday 10:45',dow:'Sun',mon:'Dec',day:'6',date:'Sun, Dec 6',time:'10:45 AM',reh:'Call time 9:30 AM',series:'Advent: Peace',
+    items:[['Pre-service countdown','5 min'],['Holy Forever','5 min','holy','C'],['Welcome & announcements','4 min'],['Goodness of God','6 min','goodness','Ab'],['Message','32 min'],['Amazing Grace (My Chains Are Gone)','5 min','grace','G'],['Doxology','2 min','doxology','G']],
+    team:{sarah:'Worship Leader',rachel:'Vocals',maya:'Vocals',jen:'Keys',mike:'Drums',tom:'Bass',dave:'Sound'}},
+  yw1209:{type:'Youth Worship',dow:'Wed',mon:'Dec',day:'9',date:'Wed, Dec 9',time:'6:45 PM set',reh:'Rehearsal 5:30 PM',series:'Advent: Joy',youth:true,
+    items:[['Band check & prayer','10 min'],['Living Hope','5 min','living','C'],['Build My Life','5 min','bmlife','G'],['Message','20 min']],
+    team:{jen:'Worship Leader',maya:'Vocals',ella:'Keys',josh:'Bass',tom:'Bass (mentor)',bryson:'Acoustic Guitar'}},
+  sun1213:{type:'Sunday 10:45',dow:'Sun',mon:'Dec',day:'13',date:'Sun, Dec 13',time:'10:45 AM',reh:'Call time 9:30 AM',series:'Advent: Joy',
+    items:[['Pre-service countdown','5 min'],['Living Hope','5 min','living','C'],['Welcome & announcements','4 min'],['Great Are You Lord','5 min','gayl','G'],['Message','32 min'],['Doxology','2 min','doxology','G']],
+    team:{sarah:'Worship Leader',rachel:'Vocals',jen:'Keys',mike:'Drums',dave:'Sound',lisa:'Lyrics',caleb:'Acoustic Guitar'}}
+};
+// Planning Center statuses: C confirmed, U unconfirmed, D declined; P = youth said yes, waiting on parent
+const REQ = [
+  {plan:'sun1206',who:'rachel',pos:'Vocals',st:'C',sync:'ok'},{plan:'sun1213',who:'rachel',pos:'Vocals',st:'U',sync:'ok'},
+  {plan:'yw1202',who:'bryson',pos:'Worship Leader',st:'C',sync:'ok'},{plan:'yw1209',who:'bryson',pos:'Acoustic Guitar',st:'U',sync:'ok'},
+  {plan:'yw1202',who:'maya',pos:'Vocals',st:'C',sync:'ok'},{plan:'sun1206',who:'maya',pos:'Vocals',st:'P',sync:'held'},
+  {plan:'yw1209',who:'maya',pos:'Vocals',st:'U',sync:'ok'}
+];
+let seq = 10;
+const CHATS = [
+  {id:'c1',name:'Sunday Dec 6 team',members:['sarah','rachel','maya','jen','mike','tom','dave'],plan:'sun1206',unread:2,by:'sarah',status:'open',msgs:[
+    ['sarah','Set is up in Planning Center. Holy Forever is in C this week.','9:12 AM'],['jen','Can we do a soft keys intro on Goodness of God?','9:40 AM'],
+    ['rachel','Love that. Maya, want to take verse 2?','10:02 AM'],['maya','Yes! I’ll practice tonight.','10:05 AM']]},
+  {id:'c2',name:'Youth worship band',members:['bryson','jen','mike','maya','caleb','ella','josh'],unread:1,by:'bryson',status:'open',msgs:[
+    ['bryson','Great job last week, everybody. Rehearsal moves to 5:30 PM in December.','Mon'],['caleb','Can we try Way Maker in D?','Mon'],['mike','D works. I’ll update the click track.','Mon']]},
+  {id:'c3',name:'Vocal team',members:['sarah','rachel','lisa'],by:'sarah',status:'open',msgs:[['sarah','Harmony practice Thursday at 7 PM in the sanctuary?','Sun'],['rachel','I’m in.','Sun']]},
+  {id:'c6',name:'Maya’s schedule question',members:['dana','bryson'],by:'dana',status:'open',msgs:[['dana','Hi Bryson, Maya has a school concert Dec 9. Can she skip rehearsal?','Sat'],['bryson','Of course! Thanks for letting me know.','Sat']]},
+  {id:'c7',name:'Guitar practice',members:['caleb','rachel','dave','ella'],by:'caleb',status:'pending',msgs:[]},
+  {id:'c8',name:'Low end crew',members:['tom','lisa','josh'],by:'tom',status:'pending',msgs:[]},
+  {id:'c4',name:'Christmas Eve 2025 team',members:['sarah','jen','mike','bryson','dave','rachel'],by:'bryson',status:'open',archived:true,msgs:[['bryson','Thank you all for an amazing Christmas Eve!','Dec 25, 2025']]},
+  {id:'c5',name:'Easter 2026 team',members:['sarah','jen','mike','bryson','maya','caleb'],by:'bryson',status:'open',archived:true,msgs:[['bryson','He is risen! Thanks, team.','Apr 5']]}
+];
+/* Leader-in-the-loop rule: returns {ok, approval, msg} */
+function checkChat(creator, others){
+  const c=PEOPLE[creator], all=[creator,...others];
+  if(!others.length) return {ok:false,msg:'Pick at least one person.'};
+  if(c.parent) return others.every(o=>PEOPLE[o].leader) ? {ok:true,approval:false,msg:'Parents can chat with leaders. No approval needed.'} : {ok:false,msg:'Parents can start chats with leaders only.'};
+  const adults = all.filter(x=>PEOPLE[x].adult).length;
+  if(all.some(x=>PEOPLE[x].youth) && adults<2){ const n=2-adults; return {ok:false,msg:`Chats with students need two approved adults. Pick ${n} more adult${n>1?'s':''} or leader${n>1?'s':''}.`}; }
+  if(others.every(o=>PEOPLE[o].leader)) return {ok:true,approval:false,msg:'Only leaders are in this chat, so it opens right away.'};
+  if(c.leader) return {ok:true,approval:false,msg:'You’re a leader, so this chat opens right away.'};
+  if(c.youth && all.filter(x=>PEOPLE[x].leader).length>=2) return {ok:true,approval:false,msg:'Two leaders are in this chat, so it opens right away.'};
+  return {ok:true,approval:true,msg:'A leader will approve this chat before it opens.'};
+}
+const hasYouth = c => c.members.some(m => PEOPLE[m].youth);
+const adultsIn = c => c.members.filter(m => PEOPLE[m].adult);
+
+const S = {role:'leader', tab:'Schedule', archived:false, parentOk:new Set(['yw1202'])};
+const me = () => ({leader:'bryson',adult:'rachel',youth:'maya',parent:'dana'})[S.role];
+const TABS = {leader:[['Schedule','sched'],['Services','svc'],['Songs','song'],['Chat','chat'],['Approve','approve']], adult:[['Schedule','sched'],['Services','svc'],['Songs','song'],['Chat','chat']], youth:[['Schedule','sched'],['Services','svc'],['Songs','song'],['Chat','chat']], parent:[['Approvals','approve'],['Schedule','sched'],['Chat','chat'],['Safety','shield']]};
+
+const $ = s => document.querySelector(s);
+function toast(msg){ document.querySelectorAll('.toast').forEach(x=>x.remove()); const t=document.createElement('div'); t.className='toast'; t.setAttribute('role','status'); t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(),2000); }
+function sheet(html){ $('#layer').innerHTML=`<div class="sheet-bg" id="sbg"><div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div>${html}</div></div>`; $('#sbg').addEventListener('click',e=>{ if(e.target.id==='sbg'||e.target.closest('[data-close]')) closeSheet(); }); }
+function closeSheet(){ $('#layer').innerHTML=''; }
+const closeBtn = `<button class="iconbtn" style="background:var(--line);color:var(--fg)" data-close aria-label="Close">${ic('x','i s')}</button>`;
+const dateChip = p => `<div class="date"><i>${p.mon}</i><b>${p.day}</b></div>`;
+const pill = (t,k='') => `<span class="pill ${k}">${t}</span>`;
+const guess = t => `<span class="guess">${t}</span>`;
+const avatar = (inner, style='') => `<span class="avatar" style="${style}">${inner}</span>`;
+
+function syncBar(){
+  const syncing = REQ.some(r=>r.sync==='syncing');
+  return `<div class="sync">${ic(syncing?'sync':'cloud','i s')}<span class="grow">${syncing?'Sending your answer to Planning Center…':'In sync with Planning Center · just now'}</span>${guess('Mock data')}</div>`;
+}
+function planRow(id, trail='', chevron=true){
+  const p=PLANS[id];
+  return `<button class="row" data-plan="${id}">${dateChip(p)}<div class="grow"><h3>${p.type}</h3><span class="muted small">${p.dow} · ${p.time} · ${p.series}</span></div>${trail}${!trail&&chevron?ic('chev'):''}</button>`;
+}
+function statusPill(planId, who){
+  const r = REQ.find(r=>r.plan===planId && r.who===who); const s = r?r.st:'C';
+  return {C:pill('Confirmed','ok'),D:pill('Declined','alert'),P:pill('Parent OK needed','warn'),U:pill('Pending','warn')}[s];
+}
+
+/* ---------- Screens ---------- */
+const V = {
+  Schedule(){
+    if(S.role==='parent') return parentSchedule();
+    const mine = REQ.filter(r=>r.who===me());
+    const open = mine.filter(r=>r.st==='U'||r.st==='P'), conf = mine.filter(r=>r.st==='C'), dec = mine.filter(r=>r.st==='D');
+    return `
+      <div><p class="muted">${({youth:'Hey Maya 👋',leader:'Hi Bryson · Leader'})[S.role]||'Hi Rachel'}</p><h1>${open.length?`You have ${open.length} request${open.length>1?'s':''}.`:'You’re all caught up.'}</h1></div>
+      ${syncBar()}
+      ${open.length?`<div class="section"><h2>Needs your answer</h2>${open.map(reqCard).join('')}</div>`:''}
+      ${conf.length?`<div class="section"><h2>You’re serving</h2><div class="list">${conf.map(r=>planRow(r.plan,pill('✓ '+r.pos,'ok'))).join('')}</div></div>`:''}
+      ${dec.length?`<div class="section"><h2>Declined</h2><div class="list">${dec.map(r=>planRow(r.plan,pill('Declined','alert'))).join('')}</div></div>`:''}
+      <div class="list"><button class="row" data-toast="Demo: blockout dates would open here">${avatar(ic('busy'))}<div class="grow"><h3>Blockout dates</h3><span class="muted small">Dec 24 – Dec 27 · synced to Planning Center</span></div>${ic('chev')}</button></div>`;
+  },
+  Services(){
+    const ids = Object.keys(PLANS).filter(id => S.role!=='youth' || PLANS[id].youth || PLANS[id].team.maya);
+    return `<h1>Services</h1><p class="muted">Service plans and set lists from Planning Center. Charts and audio files stay in Planning Center.</p>
+      <div class="list">${ids.map(id=>planRow(id, PLANS[id].team[me()]?pill('You’re on','ok'):'')).join('')}</div>`;
+  },
+  Songs(){
+    return `<h1>Songs</h1><p class="muted">Song library from Planning Center: default key, tempo and when we last used it.</p>
+      <div class="list">${Object.entries(SONGS).map(([id,s])=>`<button class="row" data-song="${id}">${avatar(ic('note'))}<div class="grow"><h3>${s[0]}</h3><span class="muted small">${s[1]} · Last used ${s[4]}</span></div>${pill(s[2]+' · '+s[3])}</button>`).join('')}</div>`;
+  },
+  Chat(){
+    const mine = CHATS.filter(c=>c.members.includes(me()));
+    const list = mine.filter(c=>!!c.archived===S.archived), nArch = mine.filter(c=>c.archived).length;
+    return `<div class="sechead"><h1>${S.archived?'Archived chats':'Chat'}</h1><button class="link" id="toggleArch">${S.archived?'Back to chats':`Archived (${nArch})`}</button></div>
+      <p class="muted small">${S.archived?'Tap the restore button to bring a chat back.':'Tap the archive button on a chat to tidy your list. Tap New chat to start one in seconds.'}</p>
+      ${list.length?`<div class="list">${list.map(chatRow).join('')}</div>`:`<div class="card"><p class="muted">${S.archived?'No archived chats.':'No chats yet. Tap New chat to start one.'}</p></div>`}`;
+  },
+  Approvals(){
+    const pend = REQ.filter(r=>r.who==='maya'&&r.st==='P');
+    return `<div><p class="muted">Good evening, Dana</p><h1>${pend.length?'Maya needs your OK.':'Nothing to approve right now.'}</h1></div>
+      ${pend.length?'':`<div class="notice info">${ic('note')}<span>Tip for the demo: switch to Youth team, accept a request, then come back here.</span></div>`}
+      ${pend.map(r=>{const p=PLANS[r.plan]; const i=REQ.indexOf(r); return `<div class="card"><div class="ann">${dateChip(p)}<div class="grow"><h3>Maya said yes to ${r.pos}</h3><span class="muted small">${p.type} · ${p.date}</span><span class="muted small">${p.reh} · ${p.time}</span></div></div>
+        <div class="btnrow"><button class="btn teal" data-papprove="${i}">Approve</button><button class="btn ghost" data-pdecline="${i}">Not this time</button></div></div>`;}).join('')}
+      <div class="section"><h2>Your student</h2><div class="list"><div class="row">${avatar('MT')}<div class="grow"><h3>Maya Thompson</h3><span class="muted small">Grade 10 · Youth worship team · Vocals</span></div>${pill('✓ Approved member','ok')}</div></div></div>
+      <p>${guess('Approval rules TBD by BRAC')}</p>`;
+  },
+  Approve(){
+    const pend = CHATS.filter(c=>c.status==='pending');
+    const recent = CHATS.filter(c=>c.approvedBy && c.approvedBy!==c.by);
+    const tag = m => pill(first(m)+' · '+kind(m), PEOPLE[m].leader?'ok':PEOPLE[m].youth?'warn':'');
+    return `<h1>Chat approvals</h1><p class="muted">Chats that include someone other than leaders wait here until a leader says yes. Any leader can approve.</p>
+      ${pend.length?'':`<div class="notice info">${ic('check')}<span>Nothing waiting. New requests show up here and on the Approve tab badge.</span></div>`}
+      ${pend.map(c=>{const ad=adultsIn(c).length, ld=c.members.filter(m=>PEOPLE[m].leader).length; return `<div class="card"><h3>${esc(c.name)}</h3><span class="muted small">Started by ${PEOPLE[c.by].n} (${kind(c.by)})</span>
+        <div class="chipsel">${c.members.map(tag).join('')}</div>
+        <span class="muted small">${hasYouth(c)?`Includes students · ${ad} approved adults · ${ld} leader${ld===1?'':'s'}`:`Adults only · ${ld} leader${ld===1?'':'s'}`}</span>
+        <div class="btnrow"><button class="btn teal" data-capprove="${c.id}">Approve</button><button class="btn ghost" data-cdecline="${c.id}">Decline</button></div></div>`;}).join('')}
+      ${recent.length?`<div class="section"><h2>Recently approved</h2><div class="list">${recent.map(c=>`<div class="row">${avatar(ic('check'))}<div class="grow"><h3>${esc(c.name)}</h3><span class="muted small">Approved by ${first(c.approvedBy)} · started by ${first(c.by)}</span></div></div>`).join('')}</div></div>`:''}
+      <p>${guess('Should the approving leader join the chat? Ask Bryson')}</p>`;
+  },
+  Safety(){
+    const cs = CHATS.filter(c=>c.members.includes('maya'));
+    return `<h1>Safety</h1>
+      <div class="notice info">${ic('shield')}<span>Every chat Maya is in has at least two approved adults, and a leader approves any chat that isn’t led by leaders. Students can’t message each other privately or message one adult alone.</span></div>
+      <div class="section"><h2>Chats Maya is in</h2><div class="list">${cs.map(c=>`<div class="row">${avatar(ic('group'))}<div class="grow"><h3>${esc(c.name)}</h3><span class="muted small">Adults: ${adultsIn(c).map(first).join(', ')} · ${c.members.length} people</span></div></div>`).join('')}</div></div>
+      <p>${guess('Whether parents can read chats is BRAC’s decision')}</p>
+      <div class="list"><button class="row" data-toast="Demo: report form would open here">${avatar(ic('flag'),'background:var(--alert-bg);color:var(--alert-fg)')}<div class="grow"><h3>Report a concern</h3><span class="muted small">Goes to BRAC’s safeguarding lead, outside the worship team.</span></div>${ic('chev')}</button></div>`;
+  }
+};
+function parentSchedule(){
+  const mine = REQ.filter(r=>r.who==='maya');
+  return `<h1>Maya’s schedule</h1><p class="muted">Rehearsals and services Maya is asked to serve.</p>
+    <div class="list">${mine.map(r=>planRow(r.plan,{C:pill('Confirmed','ok'),D:pill('Declined','alert'),P:pill('Needs you','warn'),U:pill('Not answered')}[r.st])).join('')}</div>`;
+}
+function reqCard(r){
+  const p=PLANS[r.plan], i=REQ.indexOf(r);
+  return `<div class="card"><div class="ann">${dateChip(p)}<div class="grow"><h3>${p.type} · ${r.pos}</h3><span class="muted small">${p.date} · ${p.time}</span><span class="muted small">${p.reh}</span></div></div>
+    ${r.st==='P'?`<div class="notice warn">${ic('family')}<span>You said yes. Waiting for a parent to approve before it goes to Planning Center.</span></div>`
+      :`<div class="btnrow"><button class="btn teal" data-accept="${i}">Accept</button><button class="btn ghost" data-decline="${i}">Decline</button></div>`}
+    <button class="link" data-plan="${r.plan}" style="align-self:flex-start">See the set list</button></div>`;
+}
+function chatRow(c){
+  const last = c.msgs[c.msgs.length-1];
+  const icon = c.plan ? 'svc' : (hasYouth(c) ? 'group' : 'chat');
+  return `<div class="row" style="padding-right:6px"><button class="row" data-chat="${c.id}" style="padding:0;border:0;flex:1;min-width:0">${avatar(ic(icon))}<div class="grow"><h3>${esc(c.name)}</h3><span class="muted small" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.status==='pending'?`Waiting for a leader to approve · ${c.members.length} people`:c.status==='declined'?'Not approved by a leader':last?esc(first(last[0])+': '+last[1]):c.members.length+' people'}</span></div>
+    ${c.status==='pending'?pill('Pending','warn'):c.status==='declined'?pill('Not approved','alert'):`<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span class="muted small">${last?esc(last[2]):''}</span>${c.unread?`<span class="unread">${c.unread}</span>`:(hasYouth(c)?ic('shield','i s'):'')}</div>`}</button>
+    <button class="arch" data-arch="${c.id}" aria-label="${c.archived?'Restore':'Archive'} ${esc(c.name)}">${ic('arch')}</button></div>`;
+}
+
+/* ---------- Sheets ---------- */
+function planSheet(id){
+  const p=PLANS[id]; const chat = CHATS.find(c=>c.plan===id);
+  const songs = p.items.filter(it=>it[2]);
+  sheet(`<div class="sechead"><span class="eyebrow">${p.date} · ${p.series}</span>${closeBtn}</div><h1>${p.type}</h1>
+    <div class="meta"><span>${ic('clock','i s')}${p.time}</span><span>${ic('note','i s')}${p.reh}</span></div>
+    <h2>Order of service</h2>
+    <div class="list">${p.items.map((it,i)=>`<${it[2]?`button data-song="${it[2]}" data-key="${it[3]}"`:'div'} class="row"><span class="num">${i+1}</span><div class="grow"><h3>${it[0]}</h3><span class="muted small">${it[2]?SONGS[it[2]][1]+' · ':''}${it[1]}</span></div>${it[3]?pill('Key '+it[3]):''}</${it[2]?'button':'div'}>`).join('')}</div>
+    <h2>Rehearsal playlist</h2>
+    <div class="card">${songs.map(it=>`<span class="meta"><span>${ic('play','i s')}${it[0]} (${it[3]})</span></span>`).join('')}<button class="btn" data-toast="Demo: opens the linked Spotify or YouTube playlist">Open playlist</button></div>
+    <h2>Team</h2>
+    <div class="list">${Object.entries(p.team).map(([w,pos])=>`<div class="row">${avatar(initials(w))}<div class="grow"><h3>${PEOPLE[w].n}</h3><span class="muted small">${pos}${PEOPLE[w].youth?' · Youth':''}</span></div>${statusPill(id,w)}</div>`).join('')}</div>
+    <button class="btn teal" data-teamchat="${id}">${chat?'Open team chat':'Start team chat'}</button>
+    <div class="notice info">${ic('lock')}<span>Chord charts, lyrics files and audio stay in Planning Center. This app shows the plan, keys and links only.</span></div>`);
+}
+function songSheet(id, key){
+  const s=SONGS[id];
+  sheet(`<div class="sechead"><h1>${s[0]}</h1>${closeBtn}</div><p class="muted">${s[1]}</p>
+    <div class="stats"><div class="stat"><b>${key||s[2]}</b><span>${key&&key!==s[2]?'Key this week':'Default key'}</span></div><div class="stat"><b>${s[3]}</b><span>BPM</span></div><div class="stat"><b>${s[5]}</b><span>Times used</span></div></div>
+    <div class="list"><div class="row"><div class="grow"><h3>Last used</h3><span class="muted small">${s[4]}</span></div></div><div class="row"><div class="grow"><h3>CCLI song number</h3><span class="muted small">${s[6]}</span></div></div>
+    <button class="row" data-toast="Demo: opens the YouTube or Spotify link"><div class="grow"><h3>Reference recording</h3><span class="muted small">Link from Planning Center</span></div>${ic('chev')}</button></div>
+    <div class="notice info">${ic('lock')}<span>Charts, lyrics and audio files stay in Planning Center. Open the Planning Center Services app to view them.</span></div>`);
+}
+function createChat(name, members, plan){
+  const others = members.filter(x=>x!==me()); const chk = checkChat(me(), others);
+  if(!chk.ok){ toast(chk.msg); return null; }
+  const c={id:'c'+(seq++), name, members:[me(),...others], plan, msgs:[], by:me(), status:chk.approval?'pending':'open'};
+  CHATS.unshift(c); toast(chk.approval?'Sent to the leaders for approval':'Chat started');
+  return c;
+}
+let picked = new Set();
+function newChatSheet(){
+  picked = new Set();
+  const par = S.role==='parent';
+  const myPlans = par ? [] : Object.keys(PLANS).filter(id=>PLANS[id].team[me()]);
+  const pickable = Object.keys(PEOPLE).filter(x=>x!==me() && !PEOPLE[x].parent && (!par || PEOPLE[x].leader));
+  const group = (t,f) => { const l=pickable.filter(f); return l.length?`<span class="eyebrow" style="color:var(--muted)">${t}</span><div class="chipsel">${l.map(x=>`<button aria-pressed="false" data-pick="${x}">${first(x)}</button>`).join('')}</div>`:''; };
+  const foot = {parent:'Parents can message leaders directly. These chats need no approval.',youth:'Pick two approved adults. If both are leaders, the chat opens right away. Otherwise a leader approves it first.',adult:'Chats with only leaders open right away. Any other chat waits for a leader to approve it.',leader:'Leaders’ chats open right away. Chats with students still need two approved adults.'}[S.role];
+  sheet(`<div class="sechead"><h1>${par?'Message a leader':'New chat'}</h1>${closeBtn}</div>
+    ${myPlans.length?`<h2>One tap: chat with a service team</h2>
+    <div class="list">${myPlans.map(id=>`<button class="row" data-teamchat="${id}">${dateChip(PLANS[id])}<div class="grow"><h3>${PLANS[id].type} team</h3><span class="muted small">${Object.keys(PLANS[id].team).length} people from Planning Center</span></div>${ic('chev')}</button>`).join('')}</div>
+    <h2>Or pick people</h2>`:''}
+    <label class="f" for="cname">Chat name (optional)<input type="text" id="cname" placeholder="e.g. Harmony practice"></label>
+    ${group('Leaders',x=>PEOPLE[x].leader)}${group('Adults',x=>PEOPLE[x].adult&&!PEOPLE[x].leader)}${group('Youth',x=>PEOPLE[x].youth)}
+    <div id="ruleNote"></div>
+    <button class="btn teal" id="startChat" disabled style="opacity:.5">Pick at least one person</button>
+    <p class="muted small">${foot}</p>`);
+}
+function refreshPick(){
+  const chk = checkChat(me(), [...picked]);
+  const b=$('#startChat'); b.disabled=!chk.ok; b.style.opacity=chk.ok?1:.5;
+  b.textContent = !chk.ok ? (picked.size?'Can’t start this chat yet':'Pick at least one person') : chk.approval ? 'Send for leader approval' : 'Start chat';
+  $('#ruleNote').innerHTML = picked.size ? `<div class="notice ${chk.ok&&!chk.approval?'info':'warn'}">${ic(chk.ok&&!chk.approval?'check':'shield')}<span>${chk.msg}</span></div>` : '';
+}
+
+/* ---------- Thread ---------- */
+function openChat(c){
+  c.unread=0; closeSheet(); render();
+  const msgs = c.msgs.map(m=>`<div class="bubble ${m[0]===me()?'mine':''}">${m[0]===me()?'':`<span class="who">${first(m[0])}${PEOPLE[m[0]].youth?' · Youth':''}</span>`}<span>${esc(m[1])}</span><span class="t">${esc(m[2])}</span></div>`).join('');
+  $('#threadLayer').innerHTML = `<div class="thread" role="dialog" aria-label="${esc(c.name)}">
+    <header><button class="iconbtn" data-closethread aria-label="Back">${ic('back')}</button><div class="grow"><b>${esc(c.name)}</b><span>${c.members.map(first).join(', ')}</span></div>
+    <button class="iconbtn" data-arch="${c.id}" data-closethread aria-label="${c.archived?'Restore':'Archive'} chat">${ic('arch')}</button></header>
+    ${hasYouth(c)?`<div class="rule">${ic('shield','i s')}Youth chat · approved adults here: ${adultsIn(c).map(first).join(', ')}</div>`:''}
+    ${c.approvedBy&&c.approvedBy!==c.by?`<div class="rule" style="background:var(--ok-bg);color:var(--ok-fg)">${ic('check','i s')}Approved by ${first(c.approvedBy)} (leader)</div>`:''}
+    <div class="msgs" id="msgs">${msgs||`<p class="muted" style="text-align:center;margin:auto">${c.status==='open'?'Say hi to the team 👋':'No messages yet'}</p>`}</div>
+    ${c.status==='open'?`<form id="sendForm" data-chat="${c.id}"><input id="msgIn" type="text" placeholder="Message ${esc(c.name)}" autocomplete="off"><button class="sendbtn" aria-label="Send">${ic('send')}</button></form>`
+      :`<div class="notice ${c.status==='pending'?'warn':'alert'}" style="border-radius:0;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))">${c.status==='pending'?'Waiting for a leader to approve this chat. You can send messages once it’s approved.':'A leader didn’t approve this chat. Talk with a leader if you have questions.'}</div>`}</div>`;
+  const box=$('#msgs'); box.scrollTop=box.scrollHeight;
+}
+
+/* ---------- Render ---------- */
+function render(){
+  document.querySelectorAll('.roles button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.role===S.role));
+  const tabs = TABS[S.role]; if(!tabs.find(t=>t[0]===S.tab)) S.tab=tabs[0][0];
+  const unread = CHATS.filter(c=>c.members.includes(me())&&!c.archived).reduce((a,c)=>a+(c.unread||0),0);
+  const openReq = REQ.filter(r=>r.who===me()&&r.st==='U').length;
+  const pend = REQ.filter(r=>r.who==='maya'&&r.st==='P').length;
+  const pendChats = CHATS.filter(c=>c.status==='pending').length;
+  $('#tabs').style.setProperty('--cols', tabs.length);
+  $('#tabs').innerHTML = tabs.map(([k,i])=>{
+    const badge = k==='Chat'?unread : k==='Approvals'?pend : k==='Approve'?pendChats : (k==='Schedule'&&S.role!=='parent')?openReq : 0;
+    return `<button data-go="${k}" ${S.tab===k?'aria-current="page"':''}>${ic(i)}${k}${badge?`<span class="badge">${badge}</span>`:''}</button>`;}).join('');
+  $('#screen').innerHTML = V[S.tab]();
+  $('#fabwrap').innerHTML = (S.tab==='Chat') ? `<button class="btn teal fab" id="newChat">${ic('plus','i s')}New chat</button>` : '';
+}
+function answer(i, yes){
+  const r=REQ[i];
+  if(S.role==='youth' && yes && !S.parentOk.has(r.plan)){ r.st='P'; r.sync='held'; render(); toast('Saved. We asked your parent to approve.'); return; }
+  r.st = yes?'C':'D'; r.sync='syncing'; render(); toast(yes?'Accepted. Updating Planning Center…':'Declined. Updating Planning Center…');
+  setTimeout(()=>{ r.sync='ok'; render(); }, 1400);
+}
+
+document.addEventListener('click', e=>{
+  const t = e.target.closest('button,[data-go]'); if(!t) return;
+  const d = t.dataset;
+  if(d.role){ S.role=d.role; S.tab=TABS[d.role][0][0]; S.archived=false; closeSheet(); render(); scrollTo(0,0); return; }
+  if(d.go){ S.tab=d.go; S.archived=false; closeSheet(); render(); scrollTo(0,0); return; }
+  if(d.accept){ answer(+d.accept,true); return; }
+  if(d.decline){ answer(+d.decline,false); return; }
+  if(d.papprove||d.pdecline){ const r=REQ[+(d.papprove||d.pdecline)]; const ok=!!d.papprove; if(ok) S.parentOk.add(r.plan); r.st=ok?'C':'D'; r.sync='syncing'; render(); toast(ok?'Approved. Updating Planning Center…':'Declined for Maya. Updating Planning Center…'); setTimeout(()=>{r.sync='ok';render();},1400); return; }
+  if(d.arch){ const c=CHATS.find(x=>x.id===d.arch); c.archived=!c.archived; if(d.closethread!==undefined) $('#threadLayer').innerHTML=''; render(); toast(c.archived?`Archived “${c.name}”`:`Restored “${c.name}”`); return; }
+  if(d.closethread!==undefined){ $('#threadLayer').innerHTML=''; render(); return; }
+  if(d.plan){ planSheet(d.plan); return; }
+  if(d.song){ songSheet(d.song, d.key); return; }
+  if(d.chat && t.tagName==='BUTTON' && !t.closest('form')){ openChat(CHATS.find(x=>x.id===d.chat)); return; }
+  if(d.teamchat){ const id=d.teamchat; let c=CHATS.find(x=>x.plan===id); if(c) c.archived=false; else c=createChat(PLANS[id].date.replace(',','')+' team', Object.keys(PLANS[id].team), id); if(c) openChat(c); return; }
+  if(d.capprove||d.cdecline){ const c=CHATS.find(x=>x.id===(d.capprove||d.cdecline)); if(d.capprove){ c.status='open'; c.approvedBy=me(); toast(`Approved. “${c.name}” is open.`);} else { c.status='declined'; toast(`Declined. ${first(c.by)} will see it wasn’t approved.`);} render(); return; }
+  if(d.pick){ picked.has(d.pick)?picked.delete(d.pick):picked.add(d.pick); t.setAttribute('aria-pressed', picked.has(d.pick)); refreshPick(); return; }
+  if(t.id==='startChat'){ if(!checkChat(me(),[...picked]).ok) return; const nm=$('#cname').value.trim()||[...picked].slice(0,3).map(first).join(', '); const c=createChat(nm,[...picked]); if(c) openChat(c); return; }
+  if(t.id==='newChat'){ newChatSheet(); return; }
+  if(t.id==='toggleArch'){ S.archived=!S.archived; render(); return; }
+  if(d.toast){ toast(d.toast); return; }
+  if(t.id==='aboutBtn'){ sheet(`<div class="sechead"><h1>About this demo</h1>${closeBtn}</div>
+    <p>A clickable prototype of a BRAC worship team app. Planning Center data is mocked: every name, song plan and date here is sample data. Nothing is sent anywhere.</p>
+    <div class="card"><h3>What it shows</h3><ul class="plain small"><li>Schedule requests from Planning Center, answered in the app and synced back</li><li>Service plans, set lists, keys and playlists (no files)</li><li>Team chat you can start in one tap and archive just as fast</li><li>Youth section: parent approval and two approved adults in every chat</li><li>Leader in the loop: chats with anyone besides leaders wait for a leader’s approval</li><li>Parents can message leaders directly</li></ul></div>
+    <div class="card"><h3>Questions for Bryson</h3><ul class="plain small"><li>Which Planning Center service types and teams should the app read?</li><li>Should a parent approve each date, or only joining the team?</li><li>Can parents read their student’s chats?</li><li>Who approves adults to be in chats with students?</li></ul></div>
+    <p class="muted small">Prepared by AnalytiTech LLC · Discussion draft · Nov 2026</p>`); return; }
+});
+document.addEventListener('submit', e=>{
+  if(e.target.id!=='sendForm') return; e.preventDefault();
+  const v=$('#msgIn').value.trim(); if(!v) return;
+  const c=CHATS.find(x=>x.id===e.target.dataset.chat); c.msgs.push([me(),v,'Now']); openChat(c); $('#msgIn').focus();
+});
+render();
+</script>
+
+</body>
+</html>
