@@ -1,24 +1,183 @@
 <!doctype html>
 <html lang="en">
 <head>
-{{> head}}
-<title>Goal Line Stand · Football tower defense for iPhone, iPad and Android</title>
-<meta name="description" content="Goal Line Stand is a football tower defense game for iPhone, iPad and Android. First 3 games free, one unlock, no ads, plays offline.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Goal Line Stand: Old School Tower Defense on the Gridiron</title>
+<link rel="canonical" href="{{domain}}/goallinestand/">
+<meta name="apple-itunes-app" content="app-id=6839756399">
+<meta name="description" content="Goal Line Stand is football tower defense for iPhone, iPad and Android. Put your QB, kicker, coach and O-Line on the field and stop the rival offense. First 3 games free, one unlock, no ads, plays offline.">
+<link rel="icon" href="/assets/img/goallinestand-icon.png">
+<link rel="apple-touch-icon" href="/assets/img/goallinestand-icon.png">
+<meta name="theme-color" content="#081234">
+<meta property="og:title" content="Goal Line Stand: old school tower defense is back">
+<meta property="og:description" content="Football tower defense, just in time for the playoffs. First 3 games free, no ads, no accounts.">
+<meta property="og:image" content="{{domain}}/assets/img/goallinestand/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Goal Line Stand: old school tower defense is back. Football tower defense for iPhone and Android.">
+<meta name="twitter:image" content="{{domain}}/assets/img/goallinestand/og.jpg">
+<meta property="og:url" content="{{domain}}/goallinestand/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":["VideoGame","SoftwareApplication"],
+"name":"Goal Line Stand","url":"{{domain}}/goallinestand/",
+"description":"Football tower defense. Line the field with your QB, kicker, coach and O-Line and stop the rival offense through mud, snow, fog and night games.",
+"image":"{{domain}}/assets/img/goallinestand/og.jpg",
+"applicationCategory":"GameApplication","gamePlatform":["iPhone","iPad","Android"],"operatingSystem":"iOS, iPadOS, Android",
+"genre":["Strategy","Tower Defense","Sports"],"playMode":"SinglePlayer",
+"downloadUrl":["https://apps.apple.com/us/app/id6839756399","https://play.google.com/store/apps/details?id=com.analytitech.goallinestand"],
+"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"First 3 games free; one-time unlock for the full season"},
+"publisher":{"@type":"Organization","name":"AnalytiTech, LLC","url":"{{domain}}/"},
+"sameAs":["https://www.instagram.com/goallinestandgame/"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/business.css">
+<style>
+  /* Stadium look: navy and gold, the same in light and dark mode. */
+  .gls { --g-bg: #081234; --g-ink: #F4F7FF; --g-muted: #B4C2E6; --g-gold: #FFC72C; --g-blue: #1E4CBE;
+    position: relative; overflow: hidden; background: var(--g-bg); color: var(--g-ink); isolation: isolate; }
+  .gls::before { content: ""; position: absolute; inset: 0; z-index: -2;
+    background: radial-gradient(55% 60% at 80% 10%, rgba(30, 76, 190, .65), transparent 70%),
+                radial-gradient(40% 45% at 10% 0%, rgba(255, 199, 44, .18), transparent 70%),
+                linear-gradient(180deg, #122868 0%, #081234 75%); }
+  .gls::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 30%; z-index: -1; opacity: .35;
+    background: repeating-linear-gradient(90deg, transparent 0 9.5%, rgba(255,255,255,.35) 9.5% 9.8%);
+    -webkit-mask-image: linear-gradient(transparent, #000); mask-image: linear-gradient(transparent, #000); }
+  .gls h1, .gls h2, .gls h3 { color: var(--g-ink); }
+  .gls p, .gls .lede { color: var(--g-muted); }
+  .gls .lede strong { color: var(--g-ink); }
+  .gls .eyebrow { color: var(--g-gold); }
+  .gls a:not(.btn):not(.store) { color: var(--g-gold); }
+  .hero { padding-block: clamp(48px, 7vw, 96px); }
+  .hero .wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center; }
+  .hero .pitch { display: grid; gap: 20px; min-width: 0; }
+  .hero .title { display: flex; align-items: center; gap: 16px; }
+  .hero .title img { width: 72px; height: 72px; border-radius: 18px; flex: none; box-shadow: 0 0 0 3px var(--g-gold); }
+  .hero .title span { font: 800 1.4rem var(--display, inherit); letter-spacing: .02em; text-transform: uppercase; }
+  .hero h1 { font-size: clamp(2.5rem, 5.6vw, 4.3rem); line-height: .95; letter-spacing: -.02em; text-transform: uppercase; }
+  .hero h1 .gold { color: var(--g-gold); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font: 700 .78rem var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1.5px solid var(--g-gold); color: var(--g-gold); }
+  .stores { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .store { display: inline-flex; align-items: center; padding: 10px 18px; border-radius: 12px; background: var(--g-gold); color: #081234; font-weight: 800; text-decoration: none; }
+  .store small { display: block; font: 600 .68rem var(--mono); letter-spacing: .08em; text-transform: uppercase; opacity: .75; }
+  .store:hover { box-shadow: 0 0 18px rgba(255, 199, 44, .55); }
+  .screen { position: relative; padding: 8px; border-radius: 26px; background: linear-gradient(145deg, #3A3F4A, #15181F);
+    box-shadow: 0 0 0 3px var(--g-gold), 0 30px 80px rgba(0, 0, 0, .45); }
+  .screen video { width: 100%; height: auto; aspect-ratio: 1280 / 590; border-radius: 19px; display: block; background: #081234; }
+
+  .team { padding-block: clamp(48px, 6vw, 80px); border-top: 1px solid rgba(255,255,255,.08); }
+  .team .head { display: grid; gap: 10px; max-width: 640px; }
+  .players { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 32px; }
+  .player { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 24px 20px; display: grid; gap: 8px; justify-items: center; text-align: center; }
+  .player img { width: 140px; height: 140px; filter: drop-shadow(0 0 18px rgba(255, 199, 44, .45)); }
+  .player h3 { text-transform: uppercase; color: var(--g-gold) !important; }
+
+  .gallery { display: grid; grid-auto-flow: column; grid-auto-columns: min(78%, 560px); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 2px 18px; margin-top: 28px; scrollbar-width: thin; }
+  .gallery figure { margin: 0; scroll-snap-align: start; display: grid; gap: 10px; }
+  .gallery img { width: 100%; height: auto; aspect-ratio: 1434 / 660; border-radius: 16px; display: block; box-shadow: 0 14px 34px rgba(10, 20, 34, .22); }
+  .gallery figcaption { color: var(--muted); font-size: .95rem; }
+  .gallery figcaption b { color: var(--ink); }
+  .gal-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
+  .gal-nav { display: flex; gap: 8px; }
+  .gal-nav button { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; font-size: 1.1rem; }
+  .feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+  .feat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 24px; display: grid; gap: 8px; align-content: start; }
+  .feat p { color: var(--muted); }
+  .fine { color: var(--muted); font-size: .9rem; }
+  @media (prefers-reduced-motion: reduce) { .gallery { scroll-behavior: auto; } }
+  @media (max-width: 860px) { .hero .wrap, .feats { grid-template-columns: 1fr; } .players { grid-template-columns: 1fr 1fr; } }
+</style>
 </head>
 <body>
-{{> goallinestand_header}}
-<main class="doc">
-  <h1>Goal Line Stand</h1>
-  <p><strong>Football tower defense for iPhone, iPad and Android.</strong> Rival offenses are marching down the field, and only your defense can stop them. Put your QB, kicker, coach and O-Line on the field and hold the goal line through mud, snow, fog and night games.</p>
-  <ul>
-    <li>14 games across Rookie Season, Pro Season and two special events</li>
-    <li>The first 3 games are free. One purchase unlocks the rest of the season.</li>
-    <li>No ads, no accounts, plays offline. The game collects no data.</li>
-  </ul>
-  <p>Coming soon to the App Store and Google Play.</p>
-  <p><a href="/goallinestand/support/">Help &amp; support</a> · <a href="/goallinestand/privacy/">Privacy policy</a></p>
-  <p><em>Not affiliated with or endorsed by any professional league or team.</em></p>
+{{> goallinestand_nav}}
+<main>
+  <section class="hero gls">
+    <div class="wrap">
+      <div class="pitch">
+        <div class="eyebrow">Just in time for the playoffs · iPhone, iPad and Android</div>
+        <div class="title"><img src="/assets/img/goallinestand-icon.png" alt="Goal Line Stand app icon"><span>Goal Line Stand</span></div>
+        <h1>Old school <span class="gold">tower defense</span> is back.</h1>
+        <p class="lede"><strong>Football meets tower defense.</strong> Rival offenses march down a winding field. Line it with your own team, call a Hail Mary, sub in fresh blockers and hold the goal line through mud, snow, fog and night games.</p>
+        <div class="chips" aria-label="Highlights"><span class="chip">3 games free</span><span class="chip">No ads</span><span class="chip">No accounts</span><span class="chip">Plays offline</span></div>
+        <div class="stores" id="get">
+          <a class="store" href="https://apps.apple.com/us/app/id6839756399" target="_blank" rel="noopener"><span><small>Download on the</small>App Store</span></a>
+          <a class="store" href="https://play.google.com/store/apps/details?id=com.analytitech.goallinestand" target="_blank" rel="noopener"><span><small>Get it on</small>Google Play</span></a>
+        </div>
+      </div>
+      <div class="screen">
+        <video src="/assets/video/goallinestand-gameplay.mp4" poster="/assets/img/goallinestand/gameplay-poster.jpg" muted loop playsinline preload="metadata" data-autoplay aria-label="Real Goal Line Stand gameplay: rival runners and a Giant QB march down a winding field while your QBs, kickers and coach stop them."></video>
+      </div>
+    </div>
+  </section>
+
+  <section class="team gls" id="team">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Meet your defense</div>
+        <h2>Four positions. One goal line.</h2>
+        <p>Put players on the field, then Go Pro for a stronger gold kit. Every rival that reaches your end zone costs you a life.</p>
+      </div>
+      <div class="players">
+        <div class="player"><img src="/assets/img/goallinestand/badge-qb.png" alt="" width="140" height="140"><h3>The QB</h3><p>Picks off the fast runners.</p></div>
+        <div class="player"><img src="/assets/img/goallinestand/badge-kicker.png" alt="" width="140" height="140"><h3>The Kicker</h3><p>Booming kicks crack armor.</p></div>
+        <div class="player"><img src="/assets/img/goallinestand/badge-coach.png" alt="" width="140" height="140"><h3>The Coach</h3><p>Fires up every player nearby.</p></div>
+        <div class="player"><img src="/assets/img/goallinestand/badge-oline.png" alt="" width="140" height="140"><h3>The O-Line</h3><p>Blocks right where you send them.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="gal-head">
+        <div><div class="eyebrow">Screenshots</div><h2>Hold the line</h2></div>
+        <div class="gal-nav"><button type="button" data-dir="-1" aria-label="Previous screenshot">‹</button><button type="button" data-dir="1" aria-label="Next screenshot">›</button></div>
+      </div>
+      <div class="gallery" tabindex="0" aria-label="Goal Line Stand screenshots">
+        <figure><img src="/assets/img/goallinestand/shot-01_boss_a.jpg" alt="The Giant QB boss and his offense march toward a line of defenders" loading="lazy" width="1434" height="660"><figcaption><b>Stop the rival offense.</b> Running backs, armored linemen and the Giant QB boss.</figcaption></figure>
+        <figure><img src="/assets/img/goallinestand/shot-02_build_menu.jpg" alt="Choosing a player to place on an empty spot beside the field" loading="lazy" width="1434" height="660"><figcaption><b>Build your defense.</b> Pick a spot, pick a player.</figcaption></figure>
+        <figure><img src="/assets/img/goallinestand/shot-03_blizzard_a.jpg" alt="A snow game: defenders hold a frozen winding path" loading="lazy" width="1434" height="660"><figcaption><b>Snow, mud, fog and night games.</b> Every field winds a different way.</figcaption></figure>
+        <figure><img src="/assets/img/goallinestand/shot-04_boss_b.jpg" alt="Kickers and quarterbacks take on a giant boss" loading="lazy" width="1434" height="660"><figcaption><b>Boss games.</b> Bring the kickers to crack the big ones.</figcaption></figure>
+        <figure><img src="/assets/img/goallinestand/shot-05_victory.jpg" alt="Victory screen with three gold stars" loading="lazy" width="1434" height="660"><figcaption><b>Earn 3 stars.</b> Win with lives to spare.</figcaption></figure>
+        <figure><img src="/assets/img/goallinestand/shot-06_season.jpg" alt="The season map with Rookie Season and Pro Season games" loading="lazy" width="1434" height="660"><figcaption><b>14 games.</b> Rookie Season, Pro Season and two special events.</figcaption></figure>
+        <figure><img src="/assets/img/goallinestand/shot-07_camp.jpg" alt="Training Camp upgrades bought with stars" loading="lazy" width="1434" height="660"><figcaption><b>Training Camp.</b> Spend your stars on team upgrades.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow">Fair and simple</div>
+      <div class="feats">
+        <div class="feat"><h3>Try it free</h3><p>The first 3 games are free. One purchase unlocks the full season, with nothing else to buy. Family Sharing on the App Store, so one unlock covers the household.</p></div>
+        <div class="feat"><h3>No ads, no accounts</h3><p>No ads, no sign-up and no timers. The game collects no data, and your progress stays on your device.</p></div>
+        <div class="feat"><h3>Plays anywhere</h3><p>Works offline, on the bus to practice or on the couch at halftime. iPhone, iPad and Android.</p></div>
+      </div>
+      <p class="fine" style="margin-top:24px"><a href="/goallinestand/support/">Help &amp; support</a> · <a href="/goallinestand/privacy/">Privacy policy</a> · Follow <a href="https://www.instagram.com/goallinestandgame/" target="_blank" rel="noopener">@goallinestandgame</a><br><em>Not affiliated with or endorsed by any professional league or team.</em></p>
+    </div>
+  </section>
 </main>
 {{> goallinestand_footer}}
+<script>
+  (function () {
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('video[data-autoplay]').forEach(function (v) {
+      if (still) { v.controls = true; return; }
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { var p = v.play(); if (p) p.catch(function () { v.controls = true; }); } else v.pause(); });
+        }, { threshold: 0.35 }).observe(v);
+      } else { v.autoplay = true; }
+    });
+    var g = document.querySelector('.gallery');
+    document.querySelectorAll('.gal-nav button').forEach(function (b) {
+      b.addEventListener('click', function () { g.scrollBy({ left: +b.dataset.dir * g.firstElementChild.offsetWidth, behavior: still ? 'auto' : 'smooth' }); });
+    });
+  })();
+</script>
 </body>
 </html>
